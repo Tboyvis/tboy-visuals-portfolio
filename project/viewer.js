@@ -1,3 +1,4 @@
+
 /* TBOY VISUALS — CINEMATIC IMAGE VIEWER */
 
 // COLLECTIONS
@@ -46,6 +47,27 @@ const collections = {
             "../images-webp/lifestyles/12.webp",
             "../images-webp/lifestyles/13.webp",
             "../images-webp/lifestyles/14.webp"
+        ]
+    },
+
+    editorial: {
+        title: "EDITORIAL ARCHIVE",
+        archive: "editorial.html",
+        images: [
+            "../images-webp/Editorial/BTUY6189.webp",
+            "../images-webp/Editorial/BWYS1228.webp",
+            "../images-webp/Editorial/BWYZ4454.webp",
+            "../images-webp/Editorial/EIAX9737.webp",
+            "../images-webp/Editorial/FTWK3953.webp",
+            "../images-webp/Editorial/GRJX7339.webp",
+            "../images-webp/Editorial/HGES3679.webp",
+            "../images-webp/Editorial/HHCA7474.webp",
+            "../images-webp/Editorial/IKUN6637.webp",
+            "../images-webp/Editorial/LSKI1892.webp",
+            "../images-webp/Editorial/MNEJ0336.webp",
+            "../images-webp/Editorial/OBAS9165.webp",
+            "../images-webp/Editorial/OSHS4304.webp",
+            "../images-webp/Editorial/RAYI9816.webp"
         ]
     }
 };
@@ -126,7 +148,7 @@ if (!collection) {
     projectName.textContent = collection.title;
     backButton.href = collection.archive;
 
-    
+
     // GET IMAGE INDEX
 
     function getIndex(index) {
@@ -139,8 +161,6 @@ if (!collection) {
 
     function prepareImages() {
 
-        const total = collection.images.length;
-
         const indices = [
             currentIndex,
             getIndex(currentIndex - 1),
@@ -151,8 +171,6 @@ if (!collection) {
         indices.forEach(function (index) {
             preloadImage(collection.images[index]);
         });
-
-        // Keep the cache small.
 
         const keep = new Set(
             indices.map(function (index) {
@@ -168,46 +186,50 @@ if (!collection) {
     }
 
 
- 
-// LOAD MAIN PHOTOGRAPH
+    // LOAD MAIN PHOTOGRAPH
 
-async function showMainImage(index) {
+    async function showMainImage(index) {
 
-    const request = ++imageRequest;
-    const src = collection.images[index];
+        const request = ++imageRequest;
+        const src = collection.images[index];
 
-    mainImage.style.opacity = "0";
+        mainImage.style.opacity = "0";
 
-    const image = await preloadImage(src);
+        const image = await preloadImage(src);
 
-    if (request !== imageRequest) return;
-
-    if (!image.naturalWidth) {
-        mainImage.src = src;
-        mainImage.alt = collection.title + " photograph " + (index + 1);
-
-        mainImage.onload = function () {
-            if (request === imageRequest) {
-                mainImage.style.opacity = "1";
-                mainImage.style.transform = "translateX(0)";
-            }
-        };
-
-        return;
-    }
-
-    mainImage.src = src;
-    mainImage.alt = collection.title + " photograph " + (index + 1);
-
-    mainImage.style.transform = "translateX(12px)";
-
-    requestAnimationFrame(function () {
         if (request !== imageRequest) return;
 
-        mainImage.style.opacity = "1";
-        mainImage.style.transform = "translateX(0)";
-    });
-}
+        if (!image.naturalWidth) {
+
+            mainImage.src = src;
+            mainImage.alt =
+                collection.title + " photograph " + (index + 1);
+
+            mainImage.onload = function () {
+
+                if (request === imageRequest) {
+                    mainImage.style.opacity = "1";
+                    mainImage.style.transform = "translateX(0)";
+                }
+            };
+
+            return;
+        }
+
+        mainImage.src = src;
+        mainImage.alt =
+            collection.title + " photograph " + (index + 1);
+
+        mainImage.style.transform = "translateX(12px)";
+
+        requestAnimationFrame(function () {
+
+            if (request !== imageRequest) return;
+
+            mainImage.style.opacity = "1";
+            mainImage.style.transform = "translateX(0)";
+        });
+    }
 
 
     // UPDATE SIDE PREVIEWS
@@ -249,109 +271,107 @@ async function showMainImage(index) {
     // NAVIGATION
 
     function showNext() {
-
         currentIndex++;
         updateViewer();
     }
 
     function showPrevious() {
-
         currentIndex--;
         updateViewer();
     }
 
 
- 
-// BUTTON AND SWIPE CONTROLS
+    // BUTTON AND SWIPE CONTROLS
 
-let suppressPreviewClickUntil = 0;
+    let suppressPreviewClickUntil = 0;
 
-prevButton.addEventListener("click", function () {
+    prevButton.addEventListener("click", function () {
 
-    if (Date.now() < suppressPreviewClickUntil) return;
+        if (Date.now() < suppressPreviewClickUntil) return;
 
-    showPrevious();
-});
-
-nextButton.addEventListener("click", function () {
-
-    if (Date.now() < suppressPreviewClickUntil) return;
-
-    showNext();
-});
-
-
-// KEYBOARD CONTROLS
-
-document.addEventListener("keydown", function (event) {
-
-    if (event.key === "ArrowRight") {
-        showNext();
-    }
-
-    if (event.key === "ArrowLeft") {
         showPrevious();
-    }
+    });
 
-    if (event.key === "Escape") {
-        window.location.href = collection.archive;
-    }
-});
+    nextButton.addEventListener("click", function () {
 
+        if (Date.now() < suppressPreviewClickUntil) return;
 
-// MOBILE SWIPE CONTROLS
-
-const swipeArea = document.querySelector(".viewer-gallery");
-
-let touchStartX = null;
-let touchStartY = null;
-
-swipeArea.addEventListener("touchstart", function (event) {
-
-    if (event.touches.length !== 1) return;
-
-    touchStartX = event.touches[0].clientX;
-    touchStartY = event.touches[0].clientY;
-
-}, { passive: true });
+        showNext();
+    });
 
 
-swipeArea.addEventListener("touchend", function (event) {
+    // KEYBOARD CONTROLS
 
-    if (touchStartX === null) return;
+    document.addEventListener("keydown", function (event) {
 
-    const touchEndX = event.changedTouches[0].clientX;
-    const touchEndY = event.changedTouches[0].clientY;
-
-    const differenceX = touchEndX - touchStartX;
-    const differenceY = touchEndY - touchStartY;
-
-    touchStartX = null;
-    touchStartY = null;
-
-    if (
-        Math.abs(differenceX) > 55 &&
-        Math.abs(differenceX) > Math.abs(differenceY) * 1.2
-    ) {
-
-        suppressPreviewClickUntil = Date.now() + 500;
-
-        if (differenceX < 0) {
+        if (event.key === "ArrowRight") {
             showNext();
-        } else {
+        }
+
+        if (event.key === "ArrowLeft") {
             showPrevious();
         }
-    }
 
-}, { passive: true });
+        if (event.key === "Escape") {
+            window.location.href = collection.archive;
+        }
+    });
 
 
-swipeArea.addEventListener("touchcancel", function () {
+    // MOBILE SWIPE CONTROLS
 
-    touchStartX = null;
-    touchStartY = null;
+    const swipeArea = document.querySelector(".viewer-gallery");
 
-}, { passive: true });
+    let touchStartX = null;
+    let touchStartY = null;
+
+    swipeArea.addEventListener("touchstart", function (event) {
+
+        if (event.touches.length !== 1) return;
+
+        touchStartX = event.touches[0].clientX;
+        touchStartY = event.touches[0].clientY;
+
+    }, { passive: true });
+
+
+    swipeArea.addEventListener("touchend", function (event) {
+
+        if (touchStartX === null) return;
+
+        const touchEndX = event.changedTouches[0].clientX;
+        const touchEndY = event.changedTouches[0].clientY;
+
+        const differenceX = touchEndX - touchStartX;
+        const differenceY = touchEndY - touchStartY;
+
+        touchStartX = null;
+        touchStartY = null;
+
+        if (
+            Math.abs(differenceX) > 55 &&
+            Math.abs(differenceX) > Math.abs(differenceY) * 1.2
+        ) {
+
+            suppressPreviewClickUntil = Date.now() + 500;
+
+            if (differenceX < 0) {
+                showNext();
+            } else {
+                showPrevious();
+            }
+        }
+
+    }, { passive: true });
+
+
+    swipeArea.addEventListener("touchcancel", function () {
+
+        touchStartX = null;
+        touchStartY = null;
+
+    }, { passive: true });
+
 
     // START VIEWER
 

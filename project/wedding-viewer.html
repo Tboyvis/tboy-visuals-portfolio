@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Wedding Stories — Tboy Visuals</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="wedding-viewer.css">
+</head>
+
+<body class="wedding-viewer-page">
+
+    <!-- HEADER -->
+
+    <header class="viewer-header">
+
+        <a href="../index.html" class="viewer-logo">
+            TBOY VISUALS
+        </a>
+
+        <a href="wedding.html" class="viewer-back">
+            <span>←</span> BACK TO WEDDINGS
+        </a>
+
+    </header>
+
+
+    <!-- MAIN VIEWER -->
+
+    <main class="wedding-viewer">
+
+        <!-- TOP INFORMATION -->
+
+        <div class="viewer-topline">
+
+            <span class="viewer-category">
+                A WEDDING STORY
+            </span>
+
+            <span class="viewer-counter">
+                <span id="current-image">01</span>
+                <span class="counter-divider">/</span>
+                <span id="total-images">26</span>
+            </span>
+
+        </div>
+
+
+        <!-- THREE IMAGE VIEWER -->
+
+        <section class="viewer-stage">
+
+            <!-- PREVIOUS IMAGE -->
+
+            <button
+                class="viewer-side viewer-side-prev"
+                id="previous-image"
+                aria-label="View previous photograph"
+                type="button"
+            >
+
+                <img
+                    src=""
+                    alt="Previous wedding photograph"
+                    id="previous-preview"
+                >
+
+            </button>
+
+
+            <!-- MAIN IMAGE -->
+
+            <div class="viewer-main-image">
+
+                <img
+                    src=""
+                    alt="Wedding photograph"
+                    id="viewer-image"
+                >
+
+            </div>
+
+
+            <!-- NEXT IMAGE -->
+
+            <button
+                class="viewer-side viewer-side-next"
+                id="next-image"
+                aria-label="View next photograph"
+                type="button"
+            >
+
+                <img
+                    src=""
+                    alt="Next wedding photograph"
+                    id="next-preview"
+                >
+
+            </button>
+
+        </section>
+
+
+       <!-- BOTTOM INFORMATION -->
+
+<div class="viewer-bottomline">
+
+    <div class="viewer-caption">
+
+        <p class="viewer-story-label" id="viewer-caption-label">
+            CHAPTER 01 — THE ARRIVAL
+        </p>
+
+        <h1 id="viewer-title">
+            Before the Forever
+        </h1>
+
+        <p class="viewer-caption-description" id="viewer-description">
+            A beautiful beginning to a story worth remembering.
+        </p>
+
+    </div>
+
+    <p class="viewer-instruction">
+        CLICK TO EXPLORE <span>·</span> USE ← → KEYS
+    </p>
+
+</div>
+
+    </main>
+
+    <script src="wedding-viewer.js"></script>
+
+</body>
+</html>

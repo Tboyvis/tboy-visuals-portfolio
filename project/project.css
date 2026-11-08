@@ -266,3 +266,12 @@ body {
         filter: blur(0);
     }
 }
+/* RED ROOM — WHITE NAVIGATION LOGO */
+
+.navbar .logo,
+.navbar .logo-name,
+.navbar .logo-monogram,
+.navbar .logo-t,
+.navbar .logo-v {
+    color: #fff !important;
+}

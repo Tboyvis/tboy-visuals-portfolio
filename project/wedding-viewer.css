@@ -1,0 +1,427 @@
+
+/* ==========================================
+   TBOY VISUALS — THE WEDDING FILM
+   THREE IMAGE CINEMATIC VIEWER
+========================================== */
+
+:root {
+    --film-bg: #171512;
+    --film-text: #eeeae3;
+    --film-muted: #918980;
+    --film-line: rgba(238, 234, 227, 0.16);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body.wedding-viewer-page {
+    background: var(--film-bg);
+    color: var(--film-text);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* HEADER */
+
+.viewer-header {
+    height: 85px;
+    padding: 0 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--film-line);
+}
+
+.viewer-logo {
+    color: var(--film-text);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+.viewer-back {
+    color: var(--film-muted);
+    text-decoration: none;
+    font-size: 9px;
+    letter-spacing: 2px;
+    transition: color .3s ease;
+}
+
+.viewer-back:hover {
+    color: var(--film-text);
+}
+
+.viewer-back span {
+    margin-right: 8px;
+}
+
+/* MAIN VIEWER */
+
+.wedding-viewer {
+    width: 100%;
+    max-width: 1900px;
+    margin: auto;
+    padding: 40px 0 60px;
+}
+
+.viewer-topline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 6%;
+}
+
+.viewer-category,
+.viewer-counter,
+.viewer-story-label,
+.viewer-instruction {
+    font-size: 9px;
+    letter-spacing: 2.5px;
+}
+
+.viewer-category,
+.viewer-story-label,
+.viewer-instruction {
+    color: var(--film-muted);
+}
+
+.viewer-counter {
+    font-variant-numeric: tabular-nums;
+}
+
+.counter-divider {
+    margin: 0 8px;
+    color: var(--film-muted);
+}
+
+/* THREE IMAGE STAGE */
+
+.viewer-stage {
+    position: relative;
+    width: 100%;
+    height: min(76vh, 900px);
+    min-height: 500px;
+    margin: 30px auto 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* MAIN IMAGE */
+
+.viewer-main-image {
+    position: relative;
+    z-index: 2;
+    width: 58%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #100f0d;
+}
+
+.viewer-main-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: opacity .4s ease, transform .8s cubic-bezier(.2,.7,.2,1);
+}
+
+/* SIDE IMAGES */
+
+.viewer-side {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    width: 29%;
+    height: 78%;
+    padding: 0;
+    border: none;
+    background: #100f0d;
+    overflow: hidden;
+    cursor: pointer;
+    transform: translateY(-50%);
+    transition:
+        width .65s ease,
+        height .65s ease,
+        opacity .5s ease,
+        filter .5s ease;
+}
+
+.viewer-side img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: .55;
+    transition:
+        opacity .5s ease,
+        transform .8s cubic-bezier(.2,.7,.2,1);
+}
+
+.viewer-side:hover img {
+    opacity: 1;
+    filter: brightness(1.12);
+    transform: scale(1.045);
+}
+
+.viewer-side {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.viewer-side:focus-visible {
+    outline: 1px solid var(--film-text);
+    outline-offset: -5px;
+}
+
+.viewer-side-prev {
+    left: 0;
+    transform: translate(-12%, -50%);
+}
+
+.viewer-side-next {
+    right: 0;
+    transform: translate(12%, -50%);
+}
+
+/* BOTTOM INFORMATION */
+
+.viewer-bottomline {
+    margin: 0 6%;
+    padding-top: 28px;
+    border-top: 1px solid var(--film-line);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 25px;
+}
+
+.viewer-story-label {
+    margin-bottom: 14px;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: #c5a982;
+}
+
+.viewer-bottomline h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(35px, 5vw, 65px);
+    font-weight: 400;
+    letter-spacing: -2px;
+    line-height: 1.1;
+}
+
+.viewer-caption-description {
+    margin-top: 13px;
+    color: var(--film-muted);
+    font-size: 11px;
+    letter-spacing: .4px;
+    line-height: 1.8;
+}
+
+.viewer-instruction {
+    text-align: right;
+    padding-bottom: 8px;
+    font-size: 8px;
+    letter-spacing: 2px;
+    line-height: 1.8;
+    color: var(--film-muted);
+}
+
+.viewer-instruction span {
+    margin: 0 7px;
+    color: #c5a982;
+}
+/* HOVER DETAILS */
+
+.viewer-logo,
+.viewer-back {
+    position: relative;
+}
+
+.viewer-logo::after,
+.viewer-back::after {
+    content: "";
+    position: absolute;
+    bottom: -7px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform .4s ease;
+}
+
+.viewer-logo:hover::after,
+.viewer-back:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+
+    .viewer-stage {
+        height: 68vh;
+        min-height: 420px;
+    }
+
+    .viewer-main-image {
+        width: 62%;
+    }
+
+    .viewer-side {
+        width: 30%;
+        height: 72%;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .viewer-header {
+        height: 70px;
+        padding: 0 5%;
+    }
+
+    .viewer-logo {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    .viewer-back {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    .wedding-viewer {
+        padding: 30px 0 45px;
+    }
+
+    .viewer-topline {
+        padding: 0 5%;
+    }
+
+    .viewer-category,
+    .viewer-counter {
+        font-size: 8px;
+        letter-spacing: 1.5px;
+    }
+
+    .viewer-stage {
+        height: 62vh;
+        min-height: 350px;
+        margin: 25px auto 30px;
+    }
+
+    .viewer-main-image {
+        width: 72%;
+    }
+
+    .viewer-side {
+        width: 28%;
+        height: 65%;
+    }
+
+    .viewer-side-prev {
+        left: -2%;
+        transform: translate(-12%, -50%);
+    }
+
+    .viewer-side-next {
+        right: -2%;
+        transform: translate(12%, -50%);
+    }
+
+    .viewer-side img {
+        opacity: .4;
+    }
+
+    .viewer-bottomline {
+        margin: 0 5%;
+        padding-top: 22px;
+        gap: 15px;
+    }
+.viewer-bottomline h1 {
+    font-size: 34px;
+    letter-spacing: -1px;
+}
+
+.viewer-caption-description {
+    font-size: 10px;
+    max-width: 260px;
+    margin-top: 10px;
+    line-height: 1.7;
+}
+
+.viewer-story-label {
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+.viewer-instruction {
+    font-size: 7px;
+    letter-spacing: 1px;
+    max-width: 125px;
+    line-height: 1.7;
+}
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition-duration: .01ms !important;
+    }
+}
+
+/* SIDE IMAGE INTERACTION */
+
+.viewer-side {
+    cursor: pointer;
+}
+
+.viewer-side img {
+    transition:
+        transform 0.7s cubic-bezier(.22,.61,.36,1),
+        filter 0.7s ease;
+}
+
+/* DESKTOP HOVER */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .viewer-side:hover img {
+        transform: scale(1.045);
+        filter: brightness(1.12);
+    }
+
+    .viewer-side {
+        transition: opacity 0.4s ease;
+    }
+
+    .viewer-side:hover {
+        opacity: 1;
+    }
+}
+
+/* KEYBOARD ACCESSIBILITY */
+
+.viewer-side:focus-visible {
+    outline: 1px solid #c5a982;
+    outline-offset: 5px;
+}

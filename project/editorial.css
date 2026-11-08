@@ -1,0 +1,307 @@
+
+/* =================================
+   EDITORIAL PAGE
+================================= */
+
+.editorial-page {
+    background: var(--cream);
+    color: #151515;
+}
+
+/* HERO */
+
+.editorial-hero {
+    position: relative;
+    min-height: 85vh;
+    overflow: hidden;
+    background: #151515;
+    color: #fff;
+    display: flex;
+    align-items: flex-end;
+    padding: 8%;
+}
+
+.editorial-hero > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.65;
+}
+
+.editorial-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.75),
+        transparent 75%
+    );
+}
+
+.editorial-hero-text {
+    position: relative;
+    z-index: 2;
+}
+
+.editorial-hero-text p {
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+.editorial-hero-text h1 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(55px, 10vw, 135px);
+    line-height: 0.88;
+    font-weight: 500;
+    letter-spacing: -5px;
+}
+
+.editorial-hero-text h1 em {
+    font-weight: 400;
+}
+
+.editorial-hero-index {
+    position: absolute;
+    right: 8%;
+    bottom: 9%;
+    z-index: 2;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+/* INTRODUCTION */
+
+.editorial-intro {
+    padding: 130px 12%;
+    max-width: 1100px;
+}
+
+.editorial-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-bottom: 35px;
+}
+
+.editorial-intro h2 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(35px, 5vw, 65px);
+    line-height: 1.15;
+    font-weight: 500;
+    max-width: 850px;
+}
+
+.editorial-intro h2 em {
+    color: #99958e;
+    font-weight: 400;
+}
+
+.editorial-description {
+    max-width: 450px;
+    margin-top: 30px;
+    font-size: 13px;
+    line-height: 1.9;
+    color: #77736d;
+}
+
+/* COLLECTION */
+
+.editorial-collection {
+    padding: 0 7% 120px;
+}
+
+.editorial-collection-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(21, 21, 21, 0.2);
+    padding-bottom: 20px;
+    margin-bottom: 35px;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+/* EDITORIAL GRID */
+
+.editorial-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 45px 18px;
+    align-items: start;
+}
+
+.editorial-item {
+    margin: 0;
+    overflow: hidden;
+    background: #dedad3;
+}
+
+.editorial-item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.editorial-item:hover img {
+    transform: scale(1.035);
+}
+
+.editorial-large {
+    grid-column: span 7;
+    aspect-ratio: 1.15 / 1;
+}
+
+.editorial-tall {
+    grid-column: span 5;
+    aspect-ratio: 0.78 / 1;
+}
+
+.editorial-wide {
+    grid-column: 3 / span 8;
+    aspect-ratio: 1.5 / 1;
+}
+
+/* FOOTER */
+
+.editorial-footer {
+    padding: 35px 7%;
+    border-top: 1px solid rgba(21, 21, 21, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+}
+
+.editorial-footer a {
+    color: inherit;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.editorial-footer a:hover {
+    opacity: 0.5;
+}
+
+
+/* MOBILE — MATCH FASHION ARCHIVE */
+
+@media (max-width: 768px) {
+
+    .editorial-hero {
+        min-height: 70vh;
+        padding: 8% 6%;
+    }
+
+    .editorial-hero-text h1 {
+        font-size: clamp(48px, 12vw, 80px);
+        letter-spacing: -2px;
+    }
+
+    .editorial-hero-index {
+        right: 6%;
+        bottom: 5%;
+        font-size: 8px;
+    }
+
+    .editorial-intro {
+        padding: 85px 7%;
+    }
+
+    .editorial-intro h2 {
+        font-size: 38px;
+    }
+
+    .editorial-collection {
+        padding: 0 5% 80px;
+    }
+
+    .editorial-collection-heading {
+        font-size: 8px;
+        margin-bottom: 30px;
+    }
+
+    /* FIVE-COLUMN GRID */
+
+    .editorial-grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        align-items: start;
+        column-gap: 8px;
+        row-gap: 45px;
+    }
+
+    .editorial-item {
+        grid-column: auto;
+        width: 85%;
+        margin: 0 auto;
+        aspect-ratio: auto;
+        overflow: visible;
+    }
+
+    .editorial-item img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    /* COLUMNS 1, 3 AND 5 STAY HIGHER */
+
+    .editorial-item:nth-child(5n + 1),
+    .editorial-item:nth-child(5n + 3),
+    .editorial-item:nth-child(5n + 5) {
+        margin-top: 0;
+    }
+
+    /* COLUMNS 2 AND 4 SIT LOWER */
+
+    .editorial-item:nth-child(5n + 2),
+    .editorial-item:nth-child(5n + 4) {
+        margin-top: 55px;
+    }
+
+    .editorial-large,
+    .editorial-tall,
+    .editorial-wide {
+        grid-column: auto;
+        width: 85%;
+        aspect-ratio: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .editorial-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 25px 5%;
+        font-size: 8px;
+    }
+}
+
+@media (max-width: 420px) {
+
+    .editorial-hero-text h1 {
+        font-size: 46px;
+    }
+
+    .editorial-intro h2 {
+        font-size: 32px;
+    }
+
+    .editorial-grid {
+        row-gap: 35px;
+        column-gap: 6px;
+    }
+
+    .editorial-item:nth-child(5n + 2),
+    .editorial-item:nth-child(5n + 4) {
+        margin-top: 40px;
+    }
+}
