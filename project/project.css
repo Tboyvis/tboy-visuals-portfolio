@@ -1,0 +1,268 @@
+/* THE RED ROOM — PROJECT DESIGN */
+
+body {
+    background: #151515;
+    color: #eae6df;
+}
+
+/* NAVIGATION */
+
+.navbar {
+    background: #151515;
+}
+
+.navbar .logo,
+.navbar .nav-links a {
+    color: #eae6df;
+}
+
+/* PROJECT HERO */
+
+.project-hero {
+    height: 88vh;
+    min-height: 600px;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding: 7%;
+    overflow: hidden;
+    background: #222;
+}
+
+.project-hero > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.65);
+}
+
+.project-title {
+    position: relative;
+    z-index: 2;
+}
+
+.project-title p {
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+.project-title h1 {
+    font-size: clamp(65px, 12vw, 160px);
+    line-height: 0.82;
+    letter-spacing: -9px;
+    font-weight: 500;
+}
+
+.project-title h1 em {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+}
+
+.project-number {
+    position: absolute;
+    right: 7%;
+    bottom: 8%;
+    font-size: 10px;
+    letter-spacing: 2px;
+    z-index: 2;
+}
+
+/* PROJECT INTRO */
+
+.project-intro {
+    padding: 140px 12%;
+}
+
+.project-intro p {
+    color: #b5a58c;
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-bottom: 35px;
+}
+
+.project-intro h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 6vw, 80px);
+    font-weight: 500;
+    line-height: 1.15;
+}
+
+/* EXPERIMENTAL GALLERY */
+
+.project-gallery .middle-image {
+    width: 75%;
+    max-width: 900px;
+    margin-left: 0;
+    margin-bottom: 120px;
+}
+
+.project-gallery {
+    padding: 0 7% 120px;
+}
+
+.project-gallery img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.project-gallery img:hover {
+    transform: scale(1.015);
+}
+
+.project-gallery > img:first-child {
+    width: 72%;
+    margin-left: auto;
+    margin-bottom: 120px;
+}
+
+.gallery-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: center;
+    margin-bottom: 120px;
+}
+
+.gallery-pair img:last-child {
+    margin-top: 120px;
+}
+
+.project-gallery .wide-image {
+    width: 60%;
+    max-width: 750px;
+    height: auto;
+    margin-left: auto;
+    margin-right: 0;
+    margin-bottom: 120px;
+}
+
+.project-gallery .last-image {
+    width: 65%;
+    margin-left: 0;
+}
+
+/* PROJECT FOOTER */
+
+.project-footer {
+    padding: 35px 7%;
+    border-top: 1px solid #383838;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.project-footer a {
+    color: #eae6df;
+    text-decoration: none;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.project-footer span {
+    color: #99958e;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+/* MOBILE RESPONSIVENESS */
+
+@media (max-width: 768px) {
+
+    .project-hero {
+        height: 75vh;
+        min-height: 500px;
+        padding: 7%;
+    }
+
+    .project-title h1 {
+        letter-spacing: -4px;
+    }
+
+    .project-number {
+        bottom: 4%;
+        right: 7%;
+        font-size: 8px;
+    }
+
+    .project-intro {
+        padding: 100px 7%;
+    }
+
+    .project-gallery {
+        padding: 0 5% 80px;
+    }
+
+    .project-gallery > img:first-child {
+        width: 100%;
+        margin-bottom: 60px;
+    }
+
+    .gallery-pair {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        margin-bottom: 60px;
+    }
+
+    .gallery-pair img:last-child {
+        margin-top: 0;
+    }
+
+   .project-gallery .wide-image {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 60px;
+}
+
+    .project-gallery .last-image {
+        width: 100%;
+    }
+
+    .project-footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* NATIVE PAGE TRANSITIONS */
+
+@view-transition {
+    navigation: auto;
+}
+
+::view-transition-old(root) {
+    animation: page-out 0.35s ease both;
+}
+
+::view-transition-new(root) {
+    animation: page-in 0.45s ease both;
+}
+
+@keyframes page-out {
+    to {
+        opacity: 0;
+        transform: scale(0.985);
+        filter: blur(3px);
+    }
+}
+
+@keyframes page-in {
+    from {
+        opacity: 0;
+        transform: scale(1.015);
+        filter: blur(3px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+    }
+}

@@ -1,0 +1,216 @@
+/* TBOY VISUALS — CINEMATIC IMAGE VIEWER */
+
+* {
+    box-sizing: border-box;
+}
+
+.viewer-page {
+    margin: 0;
+    min-height: 100vh;
+    background: #fff;
+    color: #151515;
+    overflow: hidden;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.viewer {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 90px 5% 65px;
+}
+
+/* BACK BUTTON */
+
+.viewer-back {
+    position: absolute;
+    top: 35px;
+    left: 5%;
+    color: #151515;
+    text-decoration: none;
+    font-size: 9px;
+    letter-spacing: 2px;
+    transition: opacity .3s ease;
+}
+
+.viewer-back:hover {
+    opacity: .45;
+}
+
+/* SLIDESHOW LAYOUT */
+
+.viewer-gallery {
+    width: 100%;
+    max-width: 1450px;
+    height: 75vh;
+    min-height: 450px;
+
+    display: grid;
+    grid-template-columns: 1fr 1.7fr 1fr;
+    align-items: center;
+    gap: 35px;
+    touch-action: pan-y;
+}
+
+/* CENTER IMAGE */
+
+.viewer-main {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.viewer-main img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+
+    transition:
+        opacity .45s ease,
+        transform .45s cubic-bezier(.22, .61, .36, 1);
+
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* SIDE PREVIEWS */
+
+.viewer-side {
+    width: 100%;
+    height: 55vh;
+    min-height: 300px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.viewer-side img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
+    filter: blur(2px);
+    opacity: .48;
+    transform: scale(.88);
+
+    transition:
+        filter .4s ease,
+        opacity .4s ease,
+        transform .4s ease;
+
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.viewer-side:hover img {
+    filter: blur(0);
+    opacity: .8;
+    transform: scale(.94);
+}
+
+/* PROJECT INFORMATION */
+
+.viewer-info {
+    width: 100%;
+    max-width: 1450px;
+
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 35px;
+
+    color: #99958e;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .viewer {
+        padding: 90px 15px 45px;
+    }
+
+    .viewer-back {
+        top: 30px;
+        left: 20px;
+    }
+
+    .viewer-gallery {
+        height: 65vh;
+        min-height: 350px;
+
+        grid-template-columns: .55fr 2fr .55fr;
+        gap: 8px;
+    }
+
+    .viewer-side {
+        height: 35vh;
+        min-height: 180px;
+    }
+
+    .viewer-side img {
+        filter: blur(1px);
+        opacity: .42;
+        transform: scale(.9);
+        transition:
+            opacity .3s ease,
+            transform .3s ease;
+    }
+
+    .viewer-info {
+        margin-top: 25px;
+        font-size: 8px;
+        letter-spacing: 1.5px;
+    }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 400px) {
+
+    .viewer-gallery {
+        grid-template-columns: .4fr 2fr .4fr;
+        gap: 5px;
+    }
+
+    .viewer-side {
+        min-height: 160px;
+    }
+}
+
+/* REDUCE MOTION WHEN REQUESTED */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .viewer-main img,
+    .viewer-side img,
+    .viewer-back {
+        transition: none;
+    }
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The Red Room — Tboy Visuals</title>
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="project.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <a href="../index.html" class="logo">TBOY<span>®</span></a>
+
+        <nav class="nav-links">
+            <a href="../index.html#work">WORK</a>
+            <a href="../index.html#about">ABOUT</a>
+            <a href="../index.html#contact">CONTACT</a>
+        </nav>
+    </header>
+
+    <section class="project-hero">
+        <img src="../images/red-room/cover1.JPG"
+             alt="The Red Room"
+             fetchpriority="high">
+
+        <div class="project-title">
+            <p>TBoy Visuals — Selected Works</p>
+            <h1>THE RED<br><em>ROOM.</em></h1>
+        </div>
+
+        <span class="project-number">PROJECT 001 / 2026</span>
+    </section>
+
+    <section class="project-intro">
+        <p>01 / THE COLLECTION</p>
+        <h2>A study of colour,<br>identity and expression.</h2>
+    </section>
+
+    <section class="project-gallery">
+
+        <img src="../images/red-room/images-02.JPG"
+             alt="Red Room photograph"
+             data-viewer-image="0"
+             loading="lazy"
+             decoding="async">
+
+        <img class="middle-image"
+             src="../images/red-room/images-03.JPG"
+             alt="Red Room photograph"
+             data-viewer-image="1"
+             loading="lazy"
+             decoding="async">
+
+        <img class="wide-image"
+             src="../images/red-room/images-04.JPG"
+             alt="Red Room photograph"
+             data-viewer-image="2"
+             loading="lazy"
+             decoding="async">
+
+    </section>
+
+    <footer class="project-footer">
+        <a href="../index.html">← BACK TO THE ARCHIVE</a>
+        <span>TBOY VISUALS © 2026</span>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.project-gallery img').forEach(image => {
+            image.addEventListener('click', () => {
+                const index = image.dataset.viewerImage;
+
+                window.location.href =
+                    `viewer.html?archive=red-room&image=${index}`;
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+    <rect width="64" height="64" rx="10" fill="#151515"/>
+
+    <text
+        x="9"
+        y="47"
+        font-family="Georgia, serif"
+        font-size="51"
+        font-weight="500"
+        fill="#eae6df">T</text>
+
+    <text
+        x="29"
+        y="54"
+        font-family="Georgia, serif"
+        font-size="49"
+        font-weight="500"
+        fill="#eae6df">V</text>
+</svg>
