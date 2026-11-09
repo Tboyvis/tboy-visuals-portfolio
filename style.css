@@ -1,6 +1,3 @@
-
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&display=swap');
-
 :root {
     --dark: #151515;
     --cream: #eae6df;
@@ -1656,49 +1653,530 @@ body {
 }
 
 /* ==========================================
-   TBOY VISUALS — MOBILE TYPOGRAPHY UPGRADE
+   TBOY VISUALS — REFINED MOBILE TYPOGRAPHY
 ========================================== */
 
 @media (max-width: 650px) {
 
-    /* BODY TEXT */
+    /* GENERAL BODY TEXT */
 
-    p,
-    li {
-        font-size: max(14px, 1em) !important;
+    .intro-description,
+    .about-preview-content > p:not(.section-label),
+    .about-description p,
+    .contact-intro {
+        font-size: 14px;
         line-height: 1.85;
     }
 
-    /* SMALL DESCRIPTIONS AND CAPTIONS */
+    /* MAIN NAVIGATION */
 
-    small,
-    figcaption,
-    .photo-caption,
-    .gallery-caption {
-        font-size: max(11px, 1em) !important;
+    .nav-links a {
+        font-size: 12px;
+        letter-spacing: 2px;
+    }
+
+    /* HERO */
+
+    .hero-eyebrow {
+        font-size: 9px;
+        letter-spacing: 2.5px;
+    }
+
+    .hero-link {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    .hero-bottom {
+        font-size: 8px;
+        line-height: 1.6;
+    }
+
+    /* SECTION LABELS */
+
+    .section-label,
+    .about-content .section-label,
+    .about-preview-content .section-label {
+        font-size: 9px;
+        line-height: 1.7;
+        letter-spacing: 2px;
+    }
+
+    /* MAIN HEADINGS */
+
+    .intro h2 {
+        font-size: clamp(40px, 10vw, 56px);
+        line-height: 1.12;
+    }
+
+    .section-heading h2 {
+        font-size: clamp(43px, 11vw, 56px);
+        line-height: 1.05;
+    }
+
+    .about-preview-content h2 {
+        font-size: clamp(36px, 9vw, 48px);
+        line-height: 1.12;
+    }
+
+    /* ABOUT SECTION */
+
+    .about-description p {
+        font-size: 14px;
+        line-height: 1.85;
+    }
+
+    .about-quote {
+        font-size: 19px;
         line-height: 1.7;
     }
 
-    /* BUTTONS AND LINKS */
-
-    button,
-    .button,
-    .btn {
-        font-size: max(12px, 1em) !important;
+    .about-description .about-signature {
+        font-size: 19px;
+        line-height: 1.7;
     }
 
-    /* NAVIGATION */
+    /* GALLERY CAPTIONS */
 
-    nav a,
-    header a {
-        font-size: max(11px, 1em) !important;
+    .gallery-caption-number {
+        font-size: 9px;
     }
 
-    /* FORM TEXT */
+    .gallery-caption h3 {
+        font-size: 19px;
+    }
+
+    .gallery-caption-link {
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+
+    /* IMAGE CAPTIONS AND FOOTNOTES */
+
+    .about-image-caption,
+    .about-number {
+        font-size: 9px;
+        line-height: 1.6;
+    }
+
+    /* CONTACT */
+
+    .contact-links a {
+        font-size: 11px;
+    }
+
+    .contact-links a span {
+        font-size: 13px;
+    }
+
+    /* FOOTER */
+
+    .footer p {
+        font-size: 8px;
+        line-height: 1.6;
+    }
+
+    .footer-links a {
+        font-size: 9px;
+    }
+
+    /* FORM CONTROLS */
 
     input,
     textarea,
     select {
-        font-size: 14px !important;
+        font-size: 14px;
+    }
+
+}
+
+/* ==========================================
+   TBOY VISUALS — ACCESSIBILITY CONTRAST FIX
+   NOVEMBER 2026
+========================================== */
+
+/* DARKER MUTED TEXT FOR LIGHT BACKGROUNDS */
+
+:root {
+    --muted: #68635b;
+}
+
+/* INTRODUCTION */
+
+.intro .section-label {
+    color: #68635b;
+}
+
+.intro-description {
+    color: #625e58;
+}
+
+/* ABOUT PREVIEW */
+
+.about-preview-content .section-label {
+    color: #68635b;
+}
+
+.about-preview-content h2 em {
+    color: #68635b;
+}
+
+.about-preview-content > p:not(.section-label) {
+    color: #55514c;
+}
+
+/* ARCHIVE HEADING */
+
+.section-heading::before {
+    color: #68635b;
+}
+
+.section-heading .section-label {
+    color: #68635b;
+}
+
+.section-heading > p {
+    color: #625e58;
+}
+
+/* GALLERY CAPTIONS */
+
+.gallery-caption-number {
+    color: #625e58;
+}
+
+.gallery-caption-link {
+    color: #625e58;
+}
+
+/* ABOUT PROFILE */
+
+.about-image-caption {
+    color: #68635b;
+}
+
+.about-content .section-label {
+    color: #68635b;
+}
+
+.about-number {
+    color: #68635b;
+}
+
+/* KEEP HERO TEXT VISIBLE OVER PHOTOGRAPH */
+
+.hero-bottom {
+    color: #c7c1b7;
+}
+
+/* KEEP FOOTER TEXT VISIBLE ON DARK BACKGROUND */
+
+.footer {
+    color: #bdb7ae;
+}
+
+/* ACCESSIBLE KEYBOARD FOCUS */
+
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 5px;
+}
+
+/* ==========================================
+   TBOY VISUALS — MOBILE INTRO SPACING REFINEMENT
+========================================== */
+
+@media (max-width: 768px) {
+
+    /* INTRO SECTION */
+
+    .intro {
+        padding: 75px 6% 45px;
+    }
+
+    .intro .section-label {
+        margin-bottom: 30px;
+    }
+
+    .intro-description {
+        margin-top: 25px;
+        max-width: 280px;
+        font-size: 13px;
+        line-height: 1.75;
+    }
+
+    /* ABOUT PREVIEW — IMAGE SECTION */
+
+    .about-preview {
+        padding: 45px 7% 75px;
+        gap: 25px;
+    }
+
+}
+
+/* ==========================================
+   TBOY VISUALS
+   HOMEPAGE — MOBILE SPACING REFINEMENT
+========================================== */
+
+@media (max-width: 768px) {
+
+    /* INTRO SECTION */
+
+    .intro {
+        padding: 60px 6% 35px;
+    }
+
+    .intro .section-label {
+        margin-bottom: 22px;
+    }
+
+    .intro-description {
+        margin-top: 18px;
+        line-height: 1.7;
+    }
+
+    /* ABOUT ME */
+
+    .about-preview {
+        padding: 35px 7% 45px;
+        gap: 20px;
+    }
+
+    .about-preview-content h2 {
+        margin-bottom: 14px;
+    }
+
+    .about-preview-content > p:not(.section-label) {
+        line-height: 1.75;
+    }
+
+    /* ARCHIVE / SELECTED WORK */
+
+    .work {
+        padding-top: 45px;
+        padding-bottom: 55px;
+    }
+
+    .section-heading {
+        margin-bottom: 25px;
+    }
+
+    .section-heading h2 {
+        margin-bottom: 10px;
+    }
+
+    .gallery {
+        row-gap: 22px;
+        column-gap: 12px;
+    }
+
+    .wedding-feature {
+        margin-top: 12px;
+        margin-bottom: 22px;
+    }
+
+    /* CONTACT */
+
+    .contact {
+        padding-top: 65px;
+        padding-bottom: 65px;
+    }
+
+    .contact-intro {
+        margin-top: 16px;
+        line-height: 1.75;
+    }
+
+    .contact-links {
+        margin-top: 25px;
+    }
+
+    /* FOOTER */
+
+    .footer {
+        padding-top: 22px;
+        padding-bottom: 22px;
+    }
+}
+
+/* SMALLER PHONES */
+
+@media (max-width: 420px) {
+
+    .intro {
+        padding: 50px 6% 28px;
+    }
+
+    .about-preview {
+        padding: 28px 7% 38px;
+        gap: 16px;
+    }
+
+    .work {
+        padding-top: 35px;
+        padding-bottom: 45px;
+    }
+
+    .section-heading {
+        margin-bottom: 20px;
+    }
+
+    .gallery {
+        row-gap: 18px;
+        column-gap: 10px;
+    }
+
+    .contact {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .footer {
+        padding-top: 18px;
+        padding-bottom: 18px;
+    }
+}
+
+/* ==========================================
+   TBOY VISUALS
+   DESKTOP — HOMEPAGE SPACING REFINEMENT
+   NOVEMBER 2026
+========================================== */
+
+@media (min-width: 769px) {
+
+    /* NAVIGATION */
+
+    .navbar {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    /* HERO */
+
+    .hero {
+        min-height: 74vh;
+        max-height: 800px;
+        padding-top: 85px;
+        padding-bottom: 28px;
+    }
+
+    .hero-content {
+        margin-top: 55px;
+    }
+
+    .hero-eyebrow {
+        margin-bottom: 22px;
+    }
+
+    .hero-link {
+        margin-top: 32px;
+        margin-bottom: 25px;
+    }
+
+    /* INTRODUCTION */
+
+    .intro {
+        padding: 110px 10% 115px;
+    }
+
+    .intro .section-label {
+        margin-bottom: 45px;
+    }
+
+    .intro-description {
+        margin-top: 38px;
+    }
+
+    /* ABOUT PREVIEW */
+
+    .about-preview {
+        padding: 90px 8%;
+        gap: 8%;
+    }
+
+    .about-preview-content .section-label {
+        margin-bottom: 22px;
+    }
+
+    .about-preview-content h2 {
+        margin-bottom: 18px;
+    }
+
+    .about-preview-content > p:not(.section-label) {
+        margin-bottom: 25px;
+        line-height: 1.85;
+    }
+
+    /* SELECTED WORK / ARCHIVE */
+
+    .work {
+        padding: 70px 6% 110px;
+    }
+
+    .section-heading {
+        margin-bottom: 45px;
+        padding: 30px 36px 28px;
+    }
+
+    .section-heading h2 {
+        margin-top: 12px;
+    }
+
+    .section-heading > p {
+        margin-top: 16px;
+    }
+
+    /* PROJECT GALLERY */
+
+    .gallery {
+        gap: 42px 26px;
+    }
+
+    .gallery-caption {
+        padding-top: 12px;
+    }
+
+    .gallery-caption h3 {
+        font-size: 23px;
+    }
+
+    /* FEATURED WEDDING STORY */
+
+    .wedding-feature {
+        margin-top: 22px;
+    }
+
+    /* CONTACT */
+
+    .contact {
+        padding: 100px 10% 45px;
+    }
+
+    .contact-layout {
+        margin-top: 48px;
+        gap: 7%;
+    }
+
+    .contact-intro {
+        margin-bottom: 35px;
+    }
+
+    .contact-links {
+        gap: 25px;
+    }
+
+    .contact-signoff {
+        margin-top: 80px;
+        padding-top: 18px;
+    }
+
+    /* FOOTER */
+
+    .footer {
+        padding-top: 24px;
+        padding-bottom: 24px;
     }
 }

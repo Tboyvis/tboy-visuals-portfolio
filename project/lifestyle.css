@@ -305,3 +305,107 @@
         margin-top: 40px;
     }
 }
+
+/* ==========================================
+   TBOY VISUALS
+   LIFESTYLE — MOBILE TYPOGRAPHY REFINEMENT
+========================================== */
+
+@media (max-width: 768px) {
+
+    /* HERO */
+
+    .lifestyle-hero-text p {
+        font-size: 10px;
+        line-height: 1.8;
+        letter-spacing: 2.5px;
+        margin-bottom: 20px;
+    }
+
+    .lifestyle-hero h1 {
+        font-size: clamp(48px, 12vw, 80px);
+        line-height: 1;
+        letter-spacing: -2px;
+    }
+
+    .lifestyle-hero-index {
+        font-size: 9px;
+        line-height: 1.7;
+        letter-spacing: 1.5px;
+    }
+
+    /* INTRODUCTION */
+
+    .lifestyle-label {
+        font-size: 10px;
+        line-height: 1.7;
+        letter-spacing: 2.5px;
+        margin-bottom: 27px;
+    }
+
+    .lifestyle-intro h2 {
+        font-size: clamp(36px, 9vw, 44px);
+        line-height: 1.15;
+    }
+
+    .lifestyle-description {
+        font-size: 14px;
+        line-height: 1.9;
+        margin-top: 25px;
+    }
+
+    /* COLLECTION */
+
+    .lifestyle-collection-heading {
+        font-size: 9px;
+        line-height: 1.7;
+        letter-spacing: 1.5px;
+        margin-bottom: 28px;
+    }
+
+    /* FOOTER */
+
+    .lifestyle-footer {
+        gap: 16px;
+        padding: 28px 5%;
+        font-size: 9px;
+        line-height: 1.8;
+        letter-spacing: 1px;
+    }
+
+    .lifestyle-footer a {
+        font-size: 10px;
+    }
+}
+
+/* EXTRA SMALL SCREENS */
+
+@media (max-width: 420px) {
+
+    .lifestyle-hero h1 {
+        font-size: 46px;
+        line-height: 1.05;
+    }
+
+    .lifestyle-intro {
+        padding: 70px 7%;
+    }
+
+    .lifestyle-intro h2 {
+        font-size: 34px;
+        line-height: 1.17;
+    }
+
+    .lifestyle-description {
+        font-size: 13px;
+    }
+
+    .lifestyle-collection-heading {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    .lifestyle-footer {
+        font-size: 8px;
+    }
+}

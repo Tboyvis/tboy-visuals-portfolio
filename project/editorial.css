@@ -305,3 +305,111 @@
         margin-top: 40px;
     }
 }
+
+/* ==========================================
+   TBOY VISUALS
+   EDITORIAL — MOBILE TYPOGRAPHY REFINEMENT
+========================================== */
+
+@media (max-width: 768px) {
+
+    /* HERO */
+
+    .editorial-hero-text p {
+        font-size: 10px;
+        line-height: 1.8;
+        letter-spacing: 2.5px;
+        margin-bottom: 20px;
+    }
+
+    .editorial-hero-text h1 {
+        font-size: clamp(48px, 12vw, 80px);
+        line-height: 1;
+        letter-spacing: -2px;
+    }
+
+    .editorial-hero-index {
+        font-size: 9px;
+        line-height: 1.7;
+        letter-spacing: 1.5px;
+    }
+
+    /* INTRODUCTION */
+
+    .editorial-intro {
+        padding: 75px 7%;
+    }
+
+    .editorial-label {
+        font-size: 10px;
+        line-height: 1.7;
+        letter-spacing: 2.5px;
+        margin-bottom: 25px;
+    }
+
+    .editorial-intro h2 {
+        font-size: clamp(36px, 9vw, 44px);
+        line-height: 1.15;
+    }
+
+    .editorial-description {
+        font-size: 14px;
+        line-height: 1.9;
+        margin-top: 24px;
+    }
+
+    /* COLLECTION HEADING */
+
+    .editorial-collection-heading {
+        font-size: 9px;
+        line-height: 1.7;
+        letter-spacing: 1.5px;
+        padding-bottom: 16px;
+        margin-bottom: 28px;
+    }
+
+    /* FOOTER */
+
+    .editorial-footer {
+        font-size: 9px;
+        line-height: 1.8;
+        letter-spacing: 1px;
+        gap: 16px;
+    }
+
+    .editorial-footer a {
+        font-size: 10px;
+    }
+}
+
+/* EXTRA SMALL SCREENS */
+
+@media (max-width: 420px) {
+
+    .editorial-hero-text h1 {
+        font-size: 46px;
+        line-height: 1.05;
+    }
+
+    .editorial-intro {
+        padding: 65px 7%;
+    }
+
+    .editorial-intro h2 {
+        font-size: 34px;
+        line-height: 1.17;
+    }
+
+    .editorial-description {
+        font-size: 13px;
+    }
+
+    .editorial-collection-heading {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    .editorial-footer {
+        font-size: 8px;
+    }
+}

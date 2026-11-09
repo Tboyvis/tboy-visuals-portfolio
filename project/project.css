@@ -275,3 +275,105 @@ body {
 .navbar .logo-v {
     color: #fff !important;
 }
+
+
+/* ==========================================
+   TBOY VISUALS
+   RED ROOM — MOBILE TYPOGRAPHY REFINEMENT
+========================================== */
+
+@media (max-width: 768px) {
+
+    /* NAVIGATION */
+
+    .navbar .logo,
+    .navbar .nav-links a {
+        font-size: 12px;
+    }
+
+    /* HERO */
+
+    .project-title p {
+        font-size: 10px;
+        line-height: 1.8;
+        letter-spacing: 2.5px;
+        margin-bottom: 20px;
+    }
+
+    .project-title h1 {
+        font-size: clamp(55px, 13vw, 90px);
+        line-height: .95;
+        letter-spacing: -3px;
+    }
+
+    .project-number {
+        font-size: 9px;
+        line-height: 1.7;
+        letter-spacing: 1.5px;
+    }
+
+    /* INTRODUCTION */
+
+    .project-intro {
+        padding: 80px 7%;
+    }
+
+    .project-intro p {
+        font-size: 10px;
+        line-height: 1.8;
+        letter-spacing: 2.5px;
+        margin-bottom: 25px;
+    }
+
+    .project-intro h2 {
+        font-size: clamp(36px, 9vw, 52px);
+        line-height: 1.16;
+    }
+
+    /* FOOTER */
+
+    .project-footer {
+        gap: 16px;
+        padding: 28px 5%;
+    }
+
+    .project-footer a {
+        font-size: 10px;
+        line-height: 1.7;
+        letter-spacing: 1.5px;
+    }
+
+    .project-footer span {
+        font-size: 9px;
+        line-height: 1.7;
+        letter-spacing: 1px;
+    }
+}
+
+/* EXTRA SMALL SCREENS */
+
+@media (max-width: 420px) {
+
+    .project-title h1 {
+        font-size: 48px;
+        line-height: 1;
+        letter-spacing: -2px;
+    }
+
+    .project-intro {
+        padding: 70px 7%;
+    }
+
+    .project-intro h2 {
+        font-size: 34px;
+        line-height: 1.2;
+    }
+
+    .project-footer a {
+        font-size: 9px;
+    }
+
+    .project-footer span {
+        font-size: 8px;
+    }
+}

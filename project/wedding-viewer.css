@@ -1129,3 +1129,271 @@ button {
     }
 
 }
+
+
+/* ==========================================
+   TBOY VISUALS
+   MOBILE VIEWER — COMPACT EDITORIAL REFINEMENT
+========================================== */
+
+@media (max-width: 650px) {
+
+    /* MAIN IMAGE VIEWING AREA */
+
+    .viewer-stage {
+        width: 100%;
+        height: 56vh;
+        min-height: 340px;
+        max-height: 500px;
+
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0;
+
+        overflow: hidden;
+    }
+
+    /* HIDE SIDE PREVIEWS ON MOBILE */
+
+    .viewer-stage .viewer-side {
+        display: none;
+    }
+
+    /* MAIN IMAGE FRAME */
+
+    .viewer-main-image {
+        grid-column: 1;
+        width: 100%;
+        height: 100%;
+        min-height: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        overflow: hidden;
+    }
+
+    .viewer-main-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+    }
+
+    /* LANDSCAPE PHOTOGRAPHS */
+
+    .viewer-stage.has-landscape {
+        height: 43vh;
+        min-height: 260px;
+        max-height: 380px;
+    }
+
+    .viewer-stage.has-landscape .viewer-main-image {
+        width: 100%;
+        height: 100%;
+    }
+
+    /* TWO-PHOTO SPREAD */
+
+    .viewer-main-image.is-spread {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        justify-content: center;
+
+        gap: 7px;
+        padding: 4px;
+    }
+
+    .viewer-main-image.is-spread img {
+        width: 100%;
+        height: 100%;
+        min-width: 0;
+        object-fit: contain;
+    }
+
+    /* THUMBNAIL SPACING */
+
+    .viewer-thumbnails {
+        gap: 9px;
+        padding: 10px 0 8px;
+    }
+
+    .viewer-thumbnail {
+        flex: 0 0 65px;
+        width: 65px;
+        height: 65px;
+    }
+
+    /* SPACE BELOW THUMBNAILS */
+
+    .viewer-bottomline {
+        margin-top: 0;
+    }
+
+}
+
+
+/* ==========================================
+   SMALL MOBILE REFINEMENT
+========================================== */
+
+@media (max-width: 380px) {
+
+    .viewer-stage {
+        height: 52vh;
+        min-height: 300px;
+        max-height: 420px;
+    }
+
+    .viewer-stage.has-landscape {
+        height: 40vh;
+        min-height: 230px;
+        max-height: 320px;
+    }
+
+    .viewer-thumbnail {
+        flex-basis: 58px;
+        width: 58px;
+        height: 58px;
+    }
+
+}
+/* ==========================================
+   TBOY VISUALS
+   WEDDING VIEWER — MOBILE TYPOGRAPHY REFINEMENT
+========================================== */
+
+@media (max-width: 650px) {
+
+    /* HEADER */
+
+    .logo-name {
+        font-size: 12px;
+        letter-spacing: 2px;
+    }
+
+    .logo-subtitle {
+        font-size: 7px;
+        letter-spacing: 1.5px;
+    }
+
+    .viewer-back {
+        font-size: 9px;
+        letter-spacing: 1.2px;
+    }
+
+    .back-arrow {
+        font-size: 15px;
+    }
+
+    /* INTRODUCTION */
+
+    .intro-eyebrow {
+        font-size: 9px;
+        line-height: 1.7;
+        letter-spacing: 2px;
+    }
+
+    .intro-copy h1 {
+        font-size: clamp(48px, 12vw, 68px);
+        line-height: 1.05;
+    }
+
+    .intro-index {
+        font-size: 9px;
+        line-height: 1.7;
+    }
+
+    .intro-side p {
+        font-size: 13px;
+        line-height: 1.85;
+    }
+
+    /* IMAGE COUNTER */
+
+    .viewer-category {
+        font-size: 9px;
+        letter-spacing: 1.5px;
+    }
+
+    .viewer-counter {
+        font-size: 12px;
+    }
+
+    .counter-label {
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+
+    /* IMAGE OVERLAY */
+
+    .image-overlay-label {
+        font-size: 8px;
+        letter-spacing: 1.5px;
+    }
+
+    /* PHOTOGRAPH CAPTION */
+
+    .viewer-story-label {
+        font-size: 9px;
+        line-height: 1.7;
+        letter-spacing: 2px;
+    }
+
+    .viewer-caption h2 {
+        font-size: clamp(32px, 8vw, 38px);
+        line-height: 1.2;
+    }
+
+    .viewer-caption-description {
+        font-size: 13px;
+        line-height: 1.85;
+    }
+
+    /* NAVIGATION */
+
+    .viewer-instruction {
+        font-size: 10px;
+        letter-spacing: 1.5px;
+    }
+
+    .navigation-details {
+        font-size: 9px;
+        line-height: 1.7;
+    }
+
+    /* FOOTER */
+
+    .viewer-footer {
+        font-size: 9px;
+        line-height: 1.7;
+        letter-spacing: 1px;
+    }
+
+    .viewer-footer a {
+        font-size: 10px;
+    }
+}
+
+/* EXTRA SMALL SCREENS */
+
+@media (max-width: 380px) {
+
+    .intro-copy h1 {
+        font-size: 46px;
+    }
+
+    .viewer-caption h2 {
+        font-size: 31px;
+    }
+
+    .viewer-caption-description {
+        font-size: 12px;
+    }
+
+    .viewer-footer {
+        font-size: 8px;
+    }
+}

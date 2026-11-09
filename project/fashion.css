@@ -487,3 +487,139 @@ body.viewer-active > :not(.fashion-lightbox) {
         transition: none;
     }
 }
+
+/* ==========================================
+   TBOY VISUALS
+   FASHION — MOBILE TYPOGRAPHY REFINEMENT
+========================================== */
+
+@media (max-width: 768px) {
+
+    /* HERO */
+
+    .fashion-hero-text p {
+        font-size: 10px;
+        line-height: 1.8;
+        letter-spacing: 2.5px;
+        margin-bottom: 20px;
+    }
+
+    .fashion-hero-text h1 {
+        font-size: clamp(55px, 13vw, 85px);
+        line-height: .95;
+        letter-spacing: -3px;
+    }
+
+    .fashion-hero-index {
+        font-size: 9px;
+        line-height: 1.7;
+        letter-spacing: 1.5px;
+    }
+
+    /* INTRODUCTION */
+
+    .fashion-label {
+        font-size: 10px;
+        line-height: 1.7;
+        letter-spacing: 2.5px;
+        margin-bottom: 28px;
+    }
+
+    .fashion-intro h2 {
+        font-size: clamp(38px, 10vw, 58px);
+        line-height: 1.12;
+        letter-spacing: -2px;
+    }
+
+    .fashion-description {
+        font-size: 14px;
+        line-height: 1.9;
+        margin-top: 28px;
+    }
+
+    /* COLLECTION */
+
+    .fashion-collection-heading {
+        font-size: 9px;
+        line-height: 1.7;
+        letter-spacing: 1.5px;
+        margin-bottom: 28px;
+    }
+
+    /* FOOTER */
+
+    .fashion-footer {
+        gap: 15px;
+        padding: 28px 5%;
+    }
+
+    .fashion-footer a {
+        font-size: 10px;
+        line-height: 1.7;
+        letter-spacing: 1.2px;
+    }
+
+    .fashion-footer span {
+        font-size: 9px;
+        line-height: 1.7;
+        letter-spacing: 1px;
+    }
+
+    /* FULL-SCREEN IMAGE VIEWER */
+
+    .lightbox-back {
+        font-size: 10px;
+        letter-spacing: 1.5px;
+    }
+
+    .lightbox-counter {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    .fashion-lightbox button.lightbox-prev,
+    .fashion-lightbox button.lightbox-next {
+        font-size: 28px;
+    }
+}
+
+/* EXTRA SMALL SCREENS */
+
+@media (max-width: 420px) {
+
+    .fashion-hero-text h1 {
+        font-size: 46px;
+        line-height: 1.05;
+        letter-spacing: -2px;
+    }
+
+    .fashion-intro {
+        padding: 75px 7% 75px;
+    }
+
+    .fashion-intro h2 {
+        font-size: 35px;
+        line-height: 1.16;
+    }
+
+    .fashion-description {
+        font-size: 13px;
+    }
+
+    .fashion-collection-heading {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    .fashion-footer a {
+        font-size: 9px;
+    }
+
+    .lightbox-back {
+        font-size: 9px;
+    }
+
+    .lightbox-counter {
+        font-size: 9px;
+    }
+}

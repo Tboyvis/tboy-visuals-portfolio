@@ -949,50 +949,308 @@ img {
 }
 
 /* ==========================================
-   TBOY VISUALS — MOBILE TYPOGRAPHY UPGRADE
+   TBOY VISUALS — WEDDING MOBILE TYPOGRAPHY
+   REFINED EDITORIAL READABILITY
 ========================================== */
 
 @media (max-width: 650px) {
 
-    /* BODY TEXT */
+    /* NAVIGATION */
 
-    p,
-    li {
-        font-size: max(14px, 1em) !important;
-        line-height: 1.85;
+    .wedding-logo,
+    .wedding-close {
+        font-size: 10px;
+        letter-spacing: 1.5px;
     }
 
-    /* SMALL DESCRIPTIONS AND CAPTIONS */
+    /* HERO */
 
-    small,
-    figcaption,
-    .photo-caption,
-    .gallery-caption {
-        font-size: max(11px, 1em) !important;
+    .wedding-eyebrow {
+        font-size: 9px;
+        letter-spacing: 2px;
         line-height: 1.7;
     }
 
-    /* BUTTONS AND LINKS */
-
-    button,
-    .button,
-    .btn {
-        font-size: max(12px, 1em) !important;
+    .wedding-hero h1 {
+        font-size: clamp(64px, 14vw, 88px);
+        line-height: 0.98;
+        letter-spacing: -3px;
     }
 
-    /* NAVIGATION */
-
-    nav a,
-    header a {
-        font-size: max(11px, 1em) !important;
+    .wedding-hero-bottom p {
+        font-size: 12px;
+        line-height: 1.8;
     }
 
-    /* FORM TEXT */
+    .wedding-explore {
+        font-size: 9px;
+        letter-spacing: 1.2px;
+    }
 
-    input,
-    textarea,
-    select {
-        font-size: 14px !important;
+    /* INTRODUCTION */
+
+    .wedding-section-index {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    .wedding-intro-small {
+        font-size: 9px;
+        line-height: 1.8;
+        letter-spacing: 1.5px;
+    }
+
+    .wedding-intro h2 {
+        font-size: clamp(42px, 10.5vw, 60px);
+        line-height: 1.12;
+        letter-spacing: -1.8px;
+    }
+
+    .wedding-intro-description {
+        font-size: 13px;
+        line-height: 1.9;
+    }
+
+    .wedding-intro-mark {
+        font-size: 14px;
+    }
+
+    /* GALLERY HEADING */
+
+    .wedding-stories-heading h2 {
+        font-size: clamp(36px, 9vw, 43px);
+        line-height: 1.1;
+    }
+
+    .wedding-stories-count {
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+
+    /* PHOTO CAPTIONS */
+
+    .wedding-photo-caption {
+        font-size: 11px;
+        line-height: 1.6;
+        letter-spacing: 0.7px;
+    }
+
+    /* VIEWER LINK */
+
+    .wedding-viewer-cta > span {
+        font-size: 9px;
+        line-height: 1.7;
+    }
+
+    .wedding-viewer-cta a {
+        font-size: 10px;
+        letter-spacing: 1px;
+    }
+
+    /* CLOSING SECTION */
+
+    .wedding-closing-content h2 {
+        font-size: clamp(48px, 11.5vw, 72px);
+        line-height: 1.1;
+        letter-spacing: -2.5px;
+    }
+
+    .wedding-closing-content p {
+        font-size: 13px;
+        line-height: 1.8;
+    }
+
+    .wedding-closing-content > a {
+        font-size: 10px;
+        letter-spacing: 1.5px;
+    }
+
+    .wedding-closing-signature {
+        font-size: 10px;
+        letter-spacing: 1.5px;
+    }
+
+    /* FOOTER */
+
+    .wedding-footer a {
+        font-size: 10px;
+    }
+
+    .wedding-footer span {
+        font-size: 9px;
+        line-height: 1.6;
+    }
+
+}
+
+/* VERY SMALL PHONES */
+
+@media (max-width: 380px) {
+
+    .wedding-intro h2 {
+        font-size: 41px;
+    }
+
+    .wedding-photo-caption {
+        font-size: 10px;
+    }
+
+    .wedding-closing-content h2 {
+        font-size: 46px;
+    }
+
+}
+
+
+/* ==========================================
+   TBOY VISUALS
+   WEDDING ARCHIVE — MOBILE REFINEMENT
+========================================== */
+
+@media (max-width: 650px) {
+
+    /* GALLERY SECTION */
+
+    .wedding-stories {
+        padding: 65px 5% 75px;
+    }
+
+    /* GALLERY HEADING */
+
+    .wedding-stories-heading {
+        margin-bottom: 32px;
+        align-items: flex-end;
+        gap: 12px;
+    }
+
+    .wedding-stories-heading h2 {
+        font-size: clamp(36px, 9vw, 43px);
+        line-height: 1.1;
+        margin-top: 12px;
+    }
+
+    .wedding-stories-count {
+        font-size: 8px;
+        padding-bottom: 5px;
+        white-space: nowrap;
+    }
+
+    /* TWO-COLUMN PHOTO GRID */
+
+    .wedding-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 11px;
+        row-gap: 27px;
+    }
+
+    /* INDIVIDUAL PHOTOGRAPHS */
+
+    .wedding-photo {
+        width: 100%;
+        min-width: 0;
+        margin: 0 !important;
+        overflow: hidden;
+    }
+
+    .wedding-photo img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: contain;
+        transition: transform .8s ease;
+    }
+
+    /* SUBTLE ALTERNATING EDITORIAL LAYOUT */
+
+    .wedding-photo:nth-child(even) {
+        margin-top: 28px !important;
+    }
+
+    .wedding-photo:nth-child(odd) {
+        margin-top: 0 !important;
+    }
+
+    /* PHOTO CAPTIONS */
+
+    .wedding-photo-caption {
+        margin-top: 8px;
+        font-size: 11px;
+        line-height: 1.5;
+        letter-spacing: .7px;
+    }
+
+    /* VIEWER CALL TO ACTION */
+
+    .wedding-viewer-cta {
+        margin-top: 55px;
+        padding-top: 25px;
+        gap: 15px;
+    }
+
+    .wedding-viewer-cta > span {
+        font-size: 9px;
+        line-height: 1.6;
+    }
+
+    .wedding-viewer-cta a {
+        font-size: 10px;
+        gap: 9px;
+    }
+
+    /* INTRODUCTION */
+
+    .wedding-intro {
+        min-height: auto;
+        padding: 75px 7% 95px;
+    }
+
+    .wedding-intro-content {
+        margin-top: 55px;
+    }
+
+    .wedding-intro-description {
+        margin-top: 22px;
+    }
+
+    /* CLOSING SECTION */
+
+    .wedding-closing {
+        min-height: 620px;
+    }
+
+    .wedding-closing-content {
+        padding: 80px 7% 115px;
+    }
+
+}
+
+
+/* ==========================================
+   VERY SMALL PHONES
+========================================== */
+
+@media (max-width: 380px) {
+
+    .wedding-grid {
+        column-gap: 9px;
+        row-gap: 23px;
+    }
+
+    .wedding-photo:nth-child(even) {
+        margin-top: 20px !important;
+    }
+
+    .wedding-photo-caption {
+        font-size: 10px;
+    }
+
+    .wedding-viewer-cta {
+        gap: 10px;
+    }
+
+    .wedding-viewer-cta > span,
+    .wedding-viewer-cta a {
+        font-size: 8px;
     }
 
 }
