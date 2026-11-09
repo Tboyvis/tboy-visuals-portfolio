@@ -1676,3 +1676,52 @@ body.page-exit {
     }
 
 }
+
+/* ==========================================
+   TBOY VISUALS — MOBILE TYPOGRAPHY UPGRADE
+========================================== */
+
+@media (max-width: 650px) {
+
+    /* BODY TEXT */
+
+    p,
+    li {
+        font-size: max(14px, 1em) !important;
+        line-height: 1.85;
+    }
+
+    /* SMALL DESCRIPTIONS AND CAPTIONS */
+
+    small,
+    figcaption,
+    .photo-caption,
+    .gallery-caption {
+        font-size: max(11px, 1em) !important;
+        line-height: 1.7;
+    }
+
+    /* BUTTONS AND LINKS */
+
+    button,
+    .button,
+    .btn {
+        font-size: max(12px, 1em) !important;
+    }
+
+    /* NAVIGATION */
+
+    nav a,
+    header a {
+        font-size: max(11px, 1em) !important;
+    }
+
+    /* FORM TEXT */
+
+    input,
+    textarea,
+    select {
+        font-size: 14px !important;
+    }
+
+}

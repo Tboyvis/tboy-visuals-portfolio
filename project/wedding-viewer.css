@@ -1,15 +1,35 @@
 
 /* ==========================================
-   TBOY VISUALS — THE WEDDING FILM
-   THREE IMAGE CINEMATIC VIEWER
+   TBOY VISUALS
+   WEDDING STORIES — SANDSTONE & COGNAC
+   REFINED EDITORIAL EDITION
 ========================================== */
 
 :root {
-    --film-bg: #171512;
-    --film-text: #eeeae3;
-    --film-muted: #918980;
-    --film-line: rgba(238, 234, 227, 0.16);
+    --page: #F1E8DC;
+    --surface: #E5D8CA;
+    --sand: #F1E8DC;
+    --cognac: #C8A98D;
+    --taupe: #795C4A;
+    --espresso: #302722;
+    --ink: #352C27;
+    --muted: #827367;
+    --accent: #A47E60;
+    --line: rgba(48, 39, 34, .16);
+
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'DM Sans', sans-serif;
+
+    --page-gutter: max(
+        7vw,
+        calc((100vw - 1440px) / 2 + 100.8px)
+    );
 }
+
+
+/* ==========================================
+   GLOBAL RESET
+========================================== */
 
 * {
     margin: 0;
@@ -17,411 +37,1095 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body.wedding-viewer-page {
-    background: var(--film-bg);
-    color: var(--film-text);
-    font-family: 'DM Sans', sans-serif;
+    background: var(--page);
+    color: var(--ink);
+    font-family: var(--sans);
     min-height: 100vh;
     overflow-x: hidden;
 }
 
-/* HEADER */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+
+/* ==========================================
+   HEADER — SANDSTONE
+========================================== */
 
 .viewer-header {
-    height: 85px;
-    padding: 0 6%;
+    width: 100%;
+    min-height: 92px;
+    padding: 0 7%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid var(--film-line);
+    justify-content: space-between;
+
+    background: #F1E8DC;
+    border-bottom: 1px solid var(--line);
 }
 
 .viewer-logo {
-    color: var(--film-text);
-    text-decoration: none;
-    font-size: 12px;
-    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.logo-name {
+    color: var(--espresso);
+    font-size: 13px;
+    font-weight: 700;
     letter-spacing: 3px;
 }
 
-.viewer-back {
-    color: var(--film-muted);
-    text-decoration: none;
-    font-size: 9px;
+.logo-subtitle {
+    color: var(--muted);
+    font-size: 7px;
     letter-spacing: 2px;
+}
+
+.viewer-back {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    color: var(--taupe);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1.8px;
+
     transition: color .3s ease;
 }
 
 .viewer-back:hover {
-    color: var(--film-text);
+    color: var(--espresso);
 }
 
-.viewer-back span {
-    margin-right: 8px;
+.back-arrow {
+    font-size: 16px;
+    transition: transform .3s ease;
 }
 
-/* MAIN VIEWER */
+.viewer-back:hover .back-arrow {
+    transform: translateX(-5px);
+}
+
+
+/* ==========================================
+   MAIN CONTAINER
+========================================== */
 
 .wedding-viewer {
-    width: 100%;
-    max-width: 1900px;
-    margin: auto;
-    padding: 40px 0 60px;
+    width: min(1440px, 100%);
+    margin: 0 auto;
+    padding: 0 7%;
+}
+
+
+/* ==========================================
+   INTRODUCTION — FULL-WIDTH CHAMPAGNE
+========================================== */
+
+.viewer-intro {
+    position: relative;
+
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 40px;
+
+    padding: 78px var(--page-gutter) 70px;
+
+    background: #E5D8CA;
+}
+
+.intro-eyebrow {
+    display: block;
+    margin-bottom: 22px;
+
+    color: var(--taupe);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+.intro-copy h1 {
+    color: var(--espresso);
+    font-family: var(--serif);
+    font-size: clamp(48px, 6.2vw, 82px);
+    font-weight: 400;
+    line-height: .99;
+    letter-spacing: -3px;
+}
+
+.intro-copy h1 em {
+    color: #936F55;
+    font-weight: 400;
+}
+
+.intro-side {
+    max-width: 245px;
+    padding-bottom: 7px;
+}
+
+.intro-index {
+    display: block;
+    margin-bottom: 15px;
+
+    color: var(--taupe);
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.intro-side p {
+    color: #756253;
+    font-size: 11px;
+    line-height: 1.9;
+}
+
+
+/* ==========================================
+   VIEWER SECTION — FULL-WIDTH SANDSTONE
+========================================== */
+
+.viewer-section {
+    position: relative;
+
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+
+    padding: 42px var(--page-gutter) 0;
+
+    background: #F1E8DC;
 }
 
 .viewer-topline {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 6%;
+
+    padding: 17px 0;
+
+    border-top: 1px solid var(--line);
 }
 
-.viewer-category,
-.viewer-counter,
-.viewer-story-label,
-.viewer-instruction {
-    font-size: 9px;
+.viewer-category {
+    color: var(--muted);
+    font-size: 8px;
+    font-weight: 600;
     letter-spacing: 2.5px;
 }
 
-.viewer-category,
-.viewer-story-label,
-.viewer-instruction {
-    color: var(--film-muted);
-}
-
 .viewer-counter {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: var(--espresso);
+    font-size: 11px;
+    font-weight: 600;
     font-variant-numeric: tabular-nums;
 }
 
-.counter-divider {
-    margin: 0 8px;
-    color: var(--film-muted);
+.counter-label {
+    margin-right: 7px;
+
+    color: var(--muted);
+    font-size: 8px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
 }
 
-/* THREE IMAGE STAGE */
+.counter-divider {
+    color: #B29B85;
+}
+
+
+/* ==========================================
+   IMAGE STAGE
+========================================== */
 
 .viewer-stage {
-    position: relative;
     width: 100%;
-    height: min(76vh, 900px);
-    min-height: 500px;
-    margin: 30px auto 40px;
-    display: flex;
+    height: min(69vh, 760px);
+    min-height: 480px;
+
+    display: grid;
+    grid-template-columns: .78fr 2.65fr .78fr;
     align-items: center;
-    justify-content: center;
+    gap: 18px;
+
     overflow: hidden;
+    background: transparent;
 }
 
-/* MAIN IMAGE */
+
+/* ==========================================
+   MAIN PHOTOGRAPH
+   ORIGINAL ASPECT RATIO
+========================================== */
 
 .viewer-main-image {
     position: relative;
     z-index: 2;
-    width: 58%;
+
+    width: 100%;
     height: 100%;
+
+    overflow: hidden;
+    background: transparent;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
-    background: #100f0d;
 }
 
 .viewer-main-image img {
     display: block;
+
     width: 100%;
     height: 100%;
+
     object-fit: contain;
-    transition: opacity .4s ease, transform .8s cubic-bezier(.2,.7,.2,1);
+    object-position: center;
+
+    background: transparent;
+
+    transition:
+        opacity .65s ease,
+        transform .9s cubic-bezier(.22, .61, .36, 1);
 }
 
-/* SIDE IMAGES */
+.image-overlay-label {
+    position: absolute;
+    right: 20px;
+    bottom: 18px;
+
+    color: rgba(255, 255, 255, .85);
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 2px;
+
+    text-shadow: 0 1px 8px rgba(0, 0, 0, .35);
+    pointer-events: none;
+}
+
+
+/* ==========================================
+   SIDE PREVIEWS
+========================================== */
 
 .viewer-side {
-    position: absolute;
-    z-index: 1;
-    top: 50%;
-    width: 29%;
-    height: 78%;
+    position: relative;
+
+    width: 100%;
+    height: 67%;
+    min-width: 0;
+
     padding: 0;
     border: none;
-    background: #100f0d;
+
+    background: transparent;
     overflow: hidden;
     cursor: pointer;
-    transform: translateY(-50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     transition:
-        width .65s ease,
-        height .65s ease,
-        opacity .5s ease,
-        filter .5s ease;
+        opacity .4s ease,
+        transform .5s ease;
+
+    -webkit-tap-highlight-color: transparent;
 }
 
 .viewer-side img {
     display: block;
+
     width: 100%;
     height: 100%;
+
     object-fit: contain;
-    opacity: .55;
+    object-position: center;
+
+    background: transparent;
+    opacity: .78;
+
     transition:
-        opacity .5s ease,
-        transform .8s cubic-bezier(.2,.7,.2,1);
+        opacity .45s ease,
+        transform .8s cubic-bezier(.2, .7, .2, 1);
 }
 
 .viewer-side:hover img {
     opacity: 1;
-    filter: brightness(1.12);
-    transform: scale(1.045);
-}
-
-.viewer-side {
-    cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
-}
-
-.viewer-side:focus-visible {
-    outline: 1px solid var(--film-text);
-    outline-offset: -5px;
+    transform: scale(1.025);
 }
 
 .viewer-side-prev {
-    left: 0;
-    transform: translate(-12%, -50%);
+    justify-self: start;
 }
 
 .viewer-side-next {
-    right: 0;
-    transform: translate(12%, -50%);
+    justify-self: end;
 }
 
-/* BOTTOM INFORMATION */
+.preview-label {
+    position: absolute;
+    z-index: 2;
+    top: 13px;
+    left: 12px;
+
+    color: var(--espresso);
+    font-size: 7px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+}
+
+.preview-arrow {
+    position: absolute;
+    z-index: 2;
+    bottom: 12px;
+    right: 13px;
+
+    width: 30px;
+    height: 30px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid var(--line);
+    border-radius: 50%;
+
+    color: var(--espresso);
+    font-size: 15px;
+    background: rgba(241, 232, 220, .92);
+
+    transition:
+        color .3s ease,
+        background .3s ease,
+        transform .3s ease;
+}
+
+.viewer-side-prev .preview-arrow {
+    right: auto;
+    left: 13px;
+}
+
+.viewer-side:hover .preview-arrow {
+    color: #fff;
+    background: var(--espresso);
+}
+
+.viewer-side-prev:hover .preview-arrow {
+    transform: translateX(-3px);
+}
+
+.viewer-side-next:hover .preview-arrow {
+    transform: translateX(3px);
+}
+
+.viewer-side:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+}
+
+
+/* ==========================================
+   TWO-PHOTOGRAPH EDITORIAL SPREAD
+========================================== */
+
+.viewer-main-image.is-spread {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px;
+}
+
+.viewer-main-image.is-spread img {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+
+    object-fit: contain;
+    object-position: center;
+
+    background: transparent;
+}
+
+.viewer-main-image.is-spread .viewer-spread-image {
+    display: block;
+}
+
+
+/* ==========================================
+   CAPTION — FULL-WIDTH BURNT TAUPE
+========================================== */
 
 .viewer-bottomline {
-    margin: 0 6%;
-    padding-top: 28px;
-    border-top: 1px solid var(--film-line);
+    position: relative;
+
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-top: 0;
+    margin-bottom: 0;
+
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
-    gap: 25px;
+    align-items: center;
+    gap: 45px;
+
+    padding: 58px var(--page-gutter);
+
+    background: #795C4A;
+    border-top: 1px solid rgba(241, 232, 220, .65);
+    border-bottom: 1px solid rgba(241, 232, 220, .65);
+}
+
+/* Fine inset border around the entire caption area */
+
+.viewer-bottomline::before {
+    content: "";
+    position: absolute;
+
+    inset: 15px max(
+        24px,
+        calc((100vw - 1440px) / 2 + 80px)
+    );
+
+    border: 1px solid rgba(241, 232, 220, .55);
+
+    pointer-events: none;
+}
+
+.viewer-caption {
+    position: relative;
+    z-index: 1;
+
+    max-width: 620px;
+    padding: 0;
+    border: none;
+}
+
+.viewer-caption::before {
+    display: none;
 }
 
 .viewer-story-label {
     margin-bottom: 14px;
-    font-size: 9px;
-    letter-spacing: 3px;
-    color: #c5a982;
-}
 
-.viewer-bottomline h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(35px, 5vw, 65px);
-    font-weight: 400;
-    letter-spacing: -2px;
-    line-height: 1.1;
-}
-
-.viewer-caption-description {
-    margin-top: 13px;
-    color: var(--film-muted);
-    font-size: 11px;
-    letter-spacing: .4px;
-    line-height: 1.8;
-}
-
-.viewer-instruction {
-    text-align: right;
-    padding-bottom: 8px;
+    color: #E2CBB6;
     font-size: 8px;
-    letter-spacing: 2px;
-    line-height: 1.8;
-    color: var(--film-muted);
+    font-weight: 600;
+    letter-spacing: 2.5px;
 }
 
-.viewer-instruction span {
-    margin: 0 7px;
-    color: #c5a982;
-}
-/* HOVER DETAILS */
+.viewer-caption h2 {
+    color: #FFF7EE;
 
-.viewer-logo,
-.viewer-back {
-    position: relative;
-}
-
-.viewer-logo::after,
-.viewer-back::after {
-    content: "";
-    position: absolute;
-    bottom: -7px;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: currentColor;
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform .4s ease;
-}
-
-.viewer-logo:hover::after,
-.viewer-back:hover::after {
-    transform: scaleX(1);
-    transform-origin: left;
-}
-
-/* TABLET */
-
-@media (max-width: 900px) {
-
-    .viewer-stage {
-        height: 68vh;
-        min-height: 420px;
-    }
-
-    .viewer-main-image {
-        width: 62%;
-    }
-
-    .viewer-side {
-        width: 30%;
-        height: 72%;
-    }
-}
-
-/* MOBILE */
-
-@media (max-width: 700px) {
-
-    .viewer-header {
-        height: 70px;
-        padding: 0 5%;
-    }
-
-    .viewer-logo {
-        font-size: 10px;
-        letter-spacing: 2px;
-    }
-
-    .viewer-back {
-        font-size: 8px;
-        letter-spacing: 1px;
-    }
-
-    .wedding-viewer {
-        padding: 30px 0 45px;
-    }
-
-    .viewer-topline {
-        padding: 0 5%;
-    }
-
-    .viewer-category,
-    .viewer-counter {
-        font-size: 8px;
-        letter-spacing: 1.5px;
-    }
-
-    .viewer-stage {
-        height: 62vh;
-        min-height: 350px;
-        margin: 25px auto 30px;
-    }
-
-    .viewer-main-image {
-        width: 72%;
-    }
-
-    .viewer-side {
-        width: 28%;
-        height: 65%;
-    }
-
-    .viewer-side-prev {
-        left: -2%;
-        transform: translate(-12%, -50%);
-    }
-
-    .viewer-side-next {
-        right: -2%;
-        transform: translate(12%, -50%);
-    }
-
-    .viewer-side img {
-        opacity: .4;
-    }
-
-    .viewer-bottomline {
-        margin: 0 5%;
-        padding-top: 22px;
-        gap: 15px;
-    }
-.viewer-bottomline h1 {
-    font-size: 34px;
+    font-family: var(--serif);
+    font-size: clamp(34px, 4vw, 50px);
+    font-weight: 400;
+    line-height: 1.15;
     letter-spacing: -1px;
 }
 
 .viewer-caption-description {
-    font-size: 10px;
-    max-width: 260px;
-    margin-top: 10px;
-    line-height: 1.7;
+    max-width: 520px;
+    margin-top: 14px;
+
+    color: #EADCCF;
+    font-size: 11px;
+    line-height: 1.9;
 }
 
-.viewer-story-label {
-    font-size: 8px;
-    letter-spacing: 2px;
+
+/* ==========================================
+   NAVIGATION — WITHIN CAPTION PANEL
+========================================== */
+
+.viewer-navigation {
+    position: relative;
+    z-index: 1;
+
+    min-width: 230px;
+    padding: 0;
+
+    text-align: right;
+    border: none;
+    background: transparent;
 }
 
 .viewer-instruction {
-    font-size: 7px;
+    margin-bottom: 13px;
+
+    color: #FFF7EE;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+}
+
+.navigation-details {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 7px;
+
+    color: #EADCCF;
+    font-size: 8px;
     letter-spacing: 1px;
-    max-width: 125px;
-    line-height: 1.7;
-}
 }
 
-/* REDUCED MOTION */
+.navigation-separator {
+    color: #C8A98D;
+}
 
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        transition-duration: .01ms !important;
+.navigation-progress {
+    display: flex;
+    justify-content: flex-end;
+    gap: 5px;
+
+    margin-top: 17px;
+}
+
+.progress-line {
+    width: 23px;
+    height: 2px;
+
+    background: rgba(255, 247, 238, .35);
+}
+
+.progress-line:first-child {
+    background: #FFF7EE;
+}
+
+
+/* ==========================================
+   FOOTER — FULL-WIDTH ESPRESSO
+========================================== */
+
+.viewer-footer {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+
+    min-height: 100px;
+    padding: 20px var(--page-gutter);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    color: #E5D8CA;
+    font-size: 8px;
+    letter-spacing: 1.4px;
+
+    background: #302722;
+}
+
+.viewer-footer a {
+    color: #FFF7EE;
+    transition: color .3s ease;
+}
+
+.viewer-footer a:hover {
+    color: #C8A98D;
+}
+
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 950px) {
+
+    :root {
+        --page-gutter: 5.3vw;
     }
-}
 
-/* SIDE IMAGE INTERACTION */
+    .wedding-viewer {
+        padding: 0 5%;
+    }
 
-.viewer-side {
-    cursor: pointer;
-}
+    .viewer-header {
+        padding: 0 5%;
+    }
 
-.viewer-side img {
-    transition:
-        transform 0.7s cubic-bezier(.22,.61,.36,1),
-        filter 0.7s ease;
-}
+    .viewer-intro {
+        padding-top: 65px;
+        padding-bottom: 60px;
+    }
 
-/* DESKTOP HOVER */
+    .viewer-stage {
+        height: 60vh;
+        min-height: 410px;
 
-@media (hover: hover) and (pointer: fine) {
-
-    .viewer-side:hover img {
-        transform: scale(1.045);
-        filter: brightness(1.12);
+        grid-template-columns: .65fr 2.5fr .65fr;
+        gap: 12px;
     }
 
     .viewer-side {
-        transition: opacity 0.4s ease;
+        height: 58%;
     }
 
-    .viewer-side:hover {
-        opacity: 1;
+    .viewer-bottomline {
+        gap: 30px;
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
+
+    .viewer-navigation {
+        min-width: 190px;
     }
 }
 
-/* KEYBOARD ACCESSIBILITY */
 
-.viewer-side:focus-visible {
-    outline: 1px solid #c5a982;
-    outline-offset: 5px;
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 650px) {
+
+    :root {
+        --page-gutter: 5.3vw;
+    }
+
+    .viewer-header {
+        min-height: 76px;
+        padding: 0 5%;
+    }
+
+    .logo-name {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+    .logo-subtitle {
+        font-size: 6px;
+        letter-spacing: 1.5px;
+    }
+
+    .viewer-back {
+        gap: 6px;
+        font-size: 7px;
+        letter-spacing: 1px;
+    }
+
+    .back-arrow {
+        font-size: 13px;
+    }
+
+    .wedding-viewer {
+        padding: 0 5%;
+    }
+
+    .viewer-intro {
+        display: block;
+
+        padding: 52px var(--page-gutter) 42px;
+    }
+
+    .intro-eyebrow {
+        margin-bottom: 17px;
+        font-size: 8px;
+    }
+
+    .intro-copy h1 {
+        font-size: clamp(48px, 12vw, 68px);
+        letter-spacing: -2px;
+    }
+
+    .intro-side {
+        max-width: 260px;
+        margin-top: 24px;
+    }
+
+    .intro-index {
+        margin-bottom: 9px;
+        font-size: 7px;
+    }
+
+    .intro-side p {
+        font-size: 10px;
+    }
+
+    .viewer-section {
+        padding-top: 25px;
+    }
+
+    .viewer-topline {
+        padding: 14px 0;
+    }
+
+    .viewer-category {
+        font-size: 7px;
+        letter-spacing: 1.5px;
+    }
+
+    .viewer-counter {
+        gap: 5px;
+        font-size: 10px;
+    }
+
+    .counter-label {
+        font-size: 7px;
+    }
+
+    
+.viewer-stage {
+    height: 72vh;
+    min-height: 480px;
+    max-height: 680px;
+
+    grid-template-columns: .22fr 3.8fr .22fr;
+    gap: 4px;
+}
+
+    .viewer-main-image {
+        width: 100%;
+    }
+
+    .viewer-side {
+        height: 43%;
+    }
+
+    .viewer-side img {
+        opacity: .85;
+    }
+
+    .preview-label {
+        top: 7px;
+        left: 5px;
+
+        font-size: 5px;
+        letter-spacing: .5px;
+    }
+
+    .preview-arrow {
+        width: 23px;
+        height: 23px;
+
+        right: 4px;
+        bottom: 6px;
+
+        font-size: 12px;
+    }
+
+    .viewer-side-prev .preview-arrow {
+        left: 4px;
+    }
+
+    .image-overlay-label {
+        right: 10px;
+        bottom: 10px;
+
+        font-size: 6px;
+        letter-spacing: 1.5px;
+    }
+
+    /* Two-photo spread */
+
+    .viewer-main-image.is-spread {
+        gap: 10px;
+        padding: 5px;
+    }
+
+    /* Full-width caption panel */
+
+    .viewer-bottomline {
+        display: block;
+
+        padding: 36px var(--page-gutter) 34px;
+    }
+
+    .viewer-bottomline::before {
+        inset: 10px 12px;
+    }
+
+    .viewer-caption {
+        max-width: 100%;
+    }
+
+    .viewer-story-label {
+        margin-bottom: 12px;
+
+        font-size: 7px;
+        letter-spacing: 2px;
+    }
+
+    .viewer-caption h2 {
+        font-size: 36px;
+    }
+
+    .viewer-caption-description {
+        max-width: 300px;
+        font-size: 10px;
+    }
+
+    .viewer-navigation {
+        min-width: 0;
+        margin-top: 28px;
+
+        text-align: left;
+    }
+
+    .viewer-instruction {
+        margin-bottom: 9px;
+        font-size: 8px;
+    }
+
+    .navigation-details {
+        justify-content: flex-start;
+        font-size: 7px;
+    }
+
+    .navigation-progress {
+        justify-content: flex-start;
+        margin-top: 13px;
+    }
+
+    /* Full-width footer */
+
+    .viewer-footer {
+        min-height: 85px;
+
+        flex-wrap: wrap;
+        gap: 8px 15px;
+
+        padding-top: 17px;
+        padding-bottom: 17px;
+
+        font-size: 6px;
+        letter-spacing: .8px;
+    }
+}
+
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 380px) {
+
+    .viewer-stage {
+        min-height: 300px;
+        height: 50vh;
+    }
+
+    .viewer-caption h2 {
+        font-size: 31px;
+    }
+
+    .navigation-details {
+        font-size: 6px;
+    }
+}
+
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+
+}
+
+/* ==========================================
+   MOBILE LANDSCAPE PHOTOGRAPH ENHANCEMENT
+========================================== */
+
+@media (max-width: 650px) {
+
+    .viewer-main-image.is-landscape {
+        width: 100%;
+        height: 100%;
+    }
+
+    .viewer-main-image.is-landscape img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .viewer-main-image.is-portrait img {
+        object-fit: contain;
+    }
+
+}
+
+/* ==========================================
+   MOBILE LANDSCAPE PHOTOGRAPH DISPLAY
+========================================== */
+
+@media (max-width: 650px) {
+
+    .viewer-stage.has-landscape {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .viewer-stage.has-landscape .viewer-side {
+        display: none;
+    }
+
+    .viewer-stage.has-landscape .viewer-main-image {
+        grid-column: 1;
+        width: 100%;
+    }
+
+}
+
+/* ==========================================
+   TBOY VISUALS — MOBILE THUMBNAIL GALLERY
+========================================== */
+
+/* HIDE THUMBNAILS ON DESKTOP */
+
+.viewer-thumbnails {
+    display: none;
+}
+
+
+/* MOBILE GALLERY */
+
+@media (max-width: 650px) {
+
+    /* GIVE THE MAIN IMAGE THE FULL WIDTH */
+
+    .viewer-stage {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    /* REMOVE THE TINY SIDE PREVIEWS */
+
+    .viewer-stage .viewer-side {
+        display: none;
+    }
+
+    .viewer-main-image {
+        grid-column: 1;
+        width: 100%;
+    }
+
+
+    /* THUMBNAIL STRIP */
+
+    .viewer-thumbnails {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        width: 100%;
+        margin: 0 auto;
+
+        padding: 18px 0 12px;
+
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .viewer-thumbnails::-webkit-scrollbar {
+        display: none;
+    }
+
+
+    /* INDIVIDUAL THUMBNAILS */
+
+    .viewer-thumbnail {
+        position: relative;
+
+        flex: 0 0 72px;
+        width: 72px;
+        height: 72px;
+
+        padding: 0;
+        overflow: hidden;
+
+        border: 1px solid transparent;
+        background: transparent;
+
+        opacity: .58;
+        cursor: pointer;
+
+        transition:
+            opacity .3s ease,
+            border-color .3s ease;
+    }
+
+
+    /* THUMBNAIL PHOTOGRAPH */
+
+    .viewer-thumbnail img {
+        display: block;
+
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+        object-position: center;
+    }
+
+
+    /* ACTIVE THUMBNAIL */
+
+    .viewer-thumbnail.active {
+        opacity: 1;
+        border: 1px solid var(--taupe);
+    }
+
+
+    /* SUBTLE HOVER */
+
+    .viewer-thumbnail:hover {
+        opacity: 1;
+    }
+
+}
+
+
+/* SMALLER MOBILE SCREENS */
+
+@media (max-width: 380px) {
+
+    .viewer-thumbnail {
+        flex-basis: 64px;
+        width: 64px;
+        height: 64px;
+    }
+
+    .viewer-thumbnails {
+        gap: 8px;
+    }
+
 }

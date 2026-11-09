@@ -188,49 +188,55 @@ if (!collection) {
 
     // LOAD MAIN PHOTOGRAPH
 
-    async function showMainImage(index) {
+async function showMainImage(index) {
 
-        const request = ++imageRequest;
-        const src = collection.images[index];
+    const request = ++imageRequest;
+    const src = collection.images[index];
 
-        mainImage.style.opacity = "0";
+    mainImage.style.opacity = "0";
 
-        const image = await preloadImage(src);
+    const image = await preloadImage(src);
 
-        if (request !== imageRequest) return;
+    if (request !== imageRequest) return;
 
-        if (!image.naturalWidth) {
-
-            mainImage.src = src;
-            mainImage.alt =
-                collection.title + " photograph " + (index + 1);
-
-            mainImage.onload = function () {
-
-                if (request === imageRequest) {
-                    mainImage.style.opacity = "1";
-                    mainImage.style.transform = "translateX(0)";
-                }
-            };
-
-            return;
-        }
+    if (!image.naturalWidth) {
 
         mainImage.src = src;
         mainImage.alt =
             collection.title + " photograph " + (index + 1);
 
-        mainImage.style.transform = "translateX(12px)";
+        mainImage.onload = function () {
 
-        requestAnimationFrame(function () {
+            if (request === imageRequest) {
+                mainImage.style.opacity = "1";
+                mainImage.style.transform = "translateX(0)";
+            }
+        };
 
-            if (request !== imageRequest) return;
-
-            mainImage.style.opacity = "1";
-            mainImage.style.transform = "translateX(0)";
-        });
+        return;
     }
 
+    // DETECT PHOTOGRAPH ORIENTATION
+
+    const isLandscape = image.naturalWidth > image.naturalHeight;
+
+    mainImage.classList.toggle("is-landscape", isLandscape);
+    mainImage.classList.toggle("is-portrait", !isLandscape);
+
+    mainImage.src = src;
+    mainImage.alt =
+        collection.title + " photograph " + (index + 1);
+
+    mainImage.style.transform = "translateX(12px)";
+
+    requestAnimationFrame(function () {
+
+        if (request !== imageRequest) return;
+
+        mainImage.style.opacity = "1";
+        mainImage.style.transform = "translateX(0)";
+    });
+}
 
     // UPDATE SIDE PREVIEWS
 

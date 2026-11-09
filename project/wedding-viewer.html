@@ -6,136 +6,225 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <meta name="theme-color" content="#f4f1eb">
+    <meta name="description" content="A collection of wedding moments captured by Tboy Visuals.">
+
     <title>Wedding Stories — Tboy Visuals</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="wedding-viewer.css">
 </head>
 
 <body class="wedding-viewer-page">
 
-    <!-- HEADER -->
+    <!-- PAGE HEADER -->
 
     <header class="viewer-header">
 
         <a href="../index.html" class="viewer-logo">
-            TBOY VISUALS
+            <span class="logo-name">TBOY VISUALS</span>
+            <span class="logo-subtitle">PHOTOGRAPHY & VISUAL STORIES</span>
         </a>
 
         <a href="wedding.html" class="viewer-back">
-            <span>←</span> BACK TO WEDDINGS
+            <span class="back-arrow">←</span>
+            <span>BACK TO WEDDINGS</span>
         </a>
 
     </header>
 
 
-    <!-- MAIN VIEWER -->
+    <!-- MAIN CONTENT -->
 
     <main class="wedding-viewer">
 
-        <!-- TOP INFORMATION -->
+        <!-- INTRODUCTION -->
 
-        <div class="viewer-topline">
+        <section class="viewer-intro">
 
-            <span class="viewer-category">
-                A WEDDING STORY
-            </span>
+            <div class="intro-copy">
+                <span class="intro-eyebrow">THE ART OF REMEMBERING</span>
 
-            <span class="viewer-counter">
-                <span id="current-image">01</span>
-                <span class="counter-divider">/</span>
-                <span id="total-images">26</span>
-            </span>
-
-        </div>
-
-
-        <!-- THREE IMAGE VIEWER -->
-
-        <section class="viewer-stage">
-
-            <!-- PREVIOUS IMAGE -->
-
-            <button
-                class="viewer-side viewer-side-prev"
-                id="previous-image"
-                aria-label="View previous photograph"
-                type="button"
-            >
-
-                <img
-                    src=""
-                    alt="Previous wedding photograph"
-                    id="previous-preview"
-                >
-
-            </button>
-
-
-            <!-- MAIN IMAGE -->
-
-            <div class="viewer-main-image">
-
-                <img
-                    src=""
-                    alt="Wedding photograph"
-                    id="viewer-image"
-                >
-
+                <h1>
+                    A day, a story,<br>
+                    <em>forever.</em>
+                </h1>
             </div>
 
+            <div class="intro-side">
+                <span class="intro-index">01 / WEDDING ARCHIVE</span>
 
-            <!-- NEXT IMAGE -->
-
-            <button
-                class="viewer-side viewer-side-next"
-                id="next-image"
-                aria-label="View next photograph"
-                type="button"
-            >
-
-                <img
-                    src=""
-                    alt="Next wedding photograph"
-                    id="next-preview"
-                >
-
-            </button>
+                <p>
+                    A collection of moments, emotions and memories
+                    preserved through the lens.
+                </p>
+            </div>
 
         </section>
 
 
-       <!-- BOTTOM INFORMATION -->
+        <!-- IMAGE VIEWER -->
 
-<div class="viewer-bottomline">
+        <section class="viewer-section" aria-label="Wedding photograph gallery">
 
-    <div class="viewer-caption">
+            <div class="viewer-topline">
 
-        <p class="viewer-story-label" id="viewer-caption-label">
-            CHAPTER 01 — THE ARRIVAL
-        </p>
+                <span class="viewer-category">
+                    A WEDDING STORY
+                </span>
 
-        <h1 id="viewer-title">
-            Before the Forever
-        </h1>
+                <div class="viewer-counter">
+                    <span class="counter-label">IMAGE</span>
+                    <span id="current-image">01</span>
+                    <span class="counter-divider">/</span>
+                    <span id="total-images">23</span>
+                </div>
 
-        <p class="viewer-caption-description" id="viewer-description">
-            A beautiful beginning to a story worth remembering.
-        </p>
+            </div>
 
-    </div>
 
-    <p class="viewer-instruction">
-        CLICK TO EXPLORE <span>·</span> USE ← → KEYS
-    </p>
+            <!-- MAIN VIEWER STAGE -->
 
-</div>
+            <div class="viewer-stage">
+
+                <!-- PREVIOUS IMAGE -->
+
+                <button
+                    class="viewer-side viewer-side-prev"
+                    id="previous-image"
+                    type="button"
+                    aria-label="View previous photograph"
+                >
+
+                    <span class="preview-label">PREVIOUS</span>
+
+                    <img
+                        src=""
+                        alt="Previous wedding photograph"
+                        id="previous-preview"
+                    >
+
+                    <span class="preview-arrow">←</span>
+
+                </button>
+
+
+                <!-- MAIN IMAGE -->
+
+                <div class="viewer-main-image">
+
+                    <img
+                        src=""
+                        alt="Wedding photograph"
+                        id="viewer-image"
+                    >
+
+                    <span class="image-overlay-label">
+                        TBOY VISUALS
+                    </span>
+
+                </div>
+
+
+                <!-- NEXT IMAGE -->
+
+                <button
+                    class="viewer-side viewer-side-next"
+                    id="next-image"
+                    type="button"
+                    aria-label="View next photograph"
+                >
+
+                    <span class="preview-label">NEXT</span>
+
+                    <img
+                        src=""
+                        alt="Next wedding photograph"
+                        id="next-preview"
+                    >
+
+                    <span class="preview-arrow">→</span>
+
+                </button>
+
+            </div>
+
+
+            <!-- MOBILE THUMBNAIL GALLERY -->
+
+            <div
+                class="viewer-thumbnails"
+                id="viewer-thumbnails"
+                aria-label="Wedding photograph thumbnails"
+            ></div>
+
+
+            <!-- IMAGE CAPTION -->
+
+            <div class="viewer-bottomline">
+
+                <div class="viewer-caption">
+
+                    <p class="viewer-story-label" id="viewer-caption-label">
+                        CHAPTER 01 — THE BRIDE
+                    </p>
+
+                    <h2 id="viewer-title">
+                        Before the Forever
+                    </h2>
+
+                    <p class="viewer-caption-description" id="viewer-description">
+                        The quiet beauty before a day to remember.
+                    </p>
+
+                </div>
+
+
+                <!-- NAVIGATION INFORMATION -->
+
+                <div class="viewer-navigation">
+
+                    <p class="viewer-instruction">
+                        CLICK TO EXPLORE
+                    </p>
+
+                    <div class="navigation-details">
+                        <span>USE THE ARROW KEYS</span>
+                        <span class="navigation-separator">/</span>
+                        <span>SWIPE TO DISCOVER</span>
+                    </div>
+
+                    <div class="navigation-progress">
+                        <span class="progress-line"></span>
+                        <span class="progress-line"></span>
+                        <span class="progress-line"></span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer class="viewer-footer">
+
+            <span>TBoy Visuals © 2026</span>
+
+            <span>EVERY FRAME HOLDS A MEMORY</span>
+
+            <a href="wedding.html">RETURN TO THE ARCHIVE ↑</a>
+
+        </footer>
 
     </main>
+
 
     <script src="wedding-viewer.js"></script>
 

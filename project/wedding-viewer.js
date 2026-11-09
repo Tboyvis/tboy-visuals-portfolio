@@ -2,7 +2,13 @@
 /* ==========================================
    TBOY VISUALS — THE WEDDING FILM
    CINEMATIC THREE IMAGE VIEWER
+   ONE TWO-PHOTO SPREAD
+   MOBILE LANDSCAPE OPTIMISATION
+   INTERACTIVE THUMBNAIL GALLERY
 ========================================== */
+
+
+/* WEDDING IMAGES */
 
 const weddingImages = [
     "../images-webp/wedding/1.webp",
@@ -22,8 +28,15 @@ const weddingImages = [
     "../images-webp/wedding/DSC_0108.webp",
     "../images-webp/wedding/DSC_0170.webp",
     "../images-webp/wedding/DSC_1950.webp",
-    "../images-webp/wedding/DSC_1994.jpg1.webp",
-    "../images-webp/wedding/DSC_1996.jpg1.webp",
+
+    // ONE COMBINED TWO-PHOTO SPREAD
+    // First image: LEFT
+    // Second image: RIGHT
+    [
+        "../images-webp/wedding/DSC_1996.jpg1.webp",
+        "../images-webp/wedding/DSC_1994.jpg1.webp"
+    ],
+
     "../images-webp/wedding/DSC_2044.webp",
     "../images-webp/wedding/DSC_2054.webp",
     "../images-webp/wedding/DSC_2072.jpg1.webp",
@@ -121,16 +134,14 @@ const weddingCaptions = [
         title: "The Walk Into Forever",
         description: "Every step carries the promise of something beautiful."
     },
+
+    // CAPTION FOR THE COMBINED SPREAD
     {
         label: "CHAPTER 04 — THE PORTRAITS",
-        title: "Her Light",
-        description: "A bride, a beautiful presence, an unforgettable day."
+        title: "Two Sides of the Story",
+        description: "Two photographs, brought together in one moment."
     },
-    {
-        label: "CHAPTER 04 — THE PORTRAITS",
-        title: "The Man of the Moment",
-        description: "A portrait from a day that changed everything."
-    },
+
     {
         label: "CHAPTER 05 — THE DETAILS",
         title: "The Little Details",
@@ -160,13 +171,20 @@ const weddingCaptions = [
 ];
 
 
+/* ==========================================
+   VIEWER STATE
+========================================== */
+
 let currentIndex = 0;
 let isAnimating = false;
 
 
-/* ELEMENTS */
+/* ==========================================
+   ELEMENTS
+========================================== */
 
 const viewerImage = document.getElementById("viewer-image");
+
 const previousPreview = document.getElementById("previous-preview");
 const nextPreview = document.getElementById("next-preview");
 
@@ -181,17 +199,59 @@ const previousButton = document.getElementById("previous-image");
 const nextButton = document.getElementById("next-image");
 
 const viewerStage = document.querySelector(".viewer-stage");
+const mainImageContainer = document.querySelector(".viewer-main-image");
+
+const thumbnailContainer =
+    document.getElementById("viewer-thumbnails");
 
 
-/* PRELOAD IMAGES */
+/* ==========================================
+   CREATE SECOND IMAGE FOR THE SPREAD
+========================================== */
 
-weddingImages.forEach((src) => {
-    const image = new Image();
-    image.src = src;
+const secondViewerImage = document.createElement("img");
+
+secondViewerImage.className = "viewer-spread-image";
+secondViewerImage.alt = "Second photograph in wedding spread";
+secondViewerImage.style.display = "none";
+
+mainImageContainer.appendChild(secondViewerImage);
+
+
+/* ==========================================
+   GET IMAGES FOR EACH SLIDE
+========================================== */
+
+function getSlideImages(index) {
+
+    const slide = weddingImages[index];
+
+    return Array.isArray(slide) ? slide : [slide];
+
+}
+
+
+/* ==========================================
+   PRELOAD IMAGES
+========================================== */
+
+weddingImages.forEach((slide) => {
+
+    const images = Array.isArray(slide) ? slide : [slide];
+
+    images.forEach((src) => {
+
+        const image = new Image();
+        image.src = src;
+
+    });
+
 });
 
 
-/* IMAGE COUNTER */
+/* ==========================================
+   IMAGE COUNTER
+========================================== */
 
 function updateCounter() {
 
@@ -200,10 +260,13 @@ function updateCounter() {
 
     totalImages.textContent =
         String(weddingImages.length).padStart(2, "0");
+
 }
 
 
-/* UPDATE CAPTION */
+/* ==========================================
+   UPDATE CAPTION
+========================================== */
 
 function updateCaption() {
 
@@ -212,10 +275,13 @@ function updateCaption() {
     viewerTitle.textContent = caption.title;
     viewerCaptionLabel.textContent = caption.label;
     viewerDescription.textContent = caption.description;
+
 }
 
 
-/* SIDE IMAGE PREVIEWS */
+/* ==========================================
+   SIDE IMAGE PREVIEWS
+========================================== */
 
 function updatePreviews() {
 
@@ -225,15 +291,155 @@ function updatePreviews() {
     const nextIndex =
         (currentIndex + 1) % weddingImages.length;
 
-    previousPreview.src = weddingImages[previousIndex];
-    nextPreview.src = weddingImages[nextIndex];
+    previousPreview.src = getSlideImages(previousIndex)[0];
+    nextPreview.src = getSlideImages(nextIndex)[0];
 
     previousPreview.alt = "Previous wedding photograph";
     nextPreview.alt = "Next wedding photograph";
+
 }
 
 
-/* CINEMATIC IMAGE TRANSITION */
+/* ==========================================
+   MOBILE THUMBNAIL GALLERY
+========================================== */
+
+function buildThumbnails() {
+
+    thumbnailContainer.innerHTML = "";
+
+    weddingImages.forEach((slide, index) => {
+
+        const images = getSlideImages(index);
+
+        const thumbnail = document.createElement("button");
+
+        thumbnail.className = "viewer-thumbnail";
+        thumbnail.type = "button";
+
+        thumbnail.setAttribute(
+            "aria-label",
+            `View wedding photograph ${index + 1}`
+        );
+
+        const image = document.createElement("img");
+
+        image.src = images[0];
+        image.alt = `Wedding thumbnail ${index + 1}`;
+        image.loading = "lazy";
+
+        thumbnail.appendChild(image);
+
+        thumbnail.addEventListener("click", () => {
+
+            if (isAnimating || index === currentIndex) return;
+
+            const direction = index > currentIndex ? 1 : -1;
+
+            showImage(index, direction);
+
+        });
+
+        thumbnailContainer.appendChild(thumbnail);
+
+    });
+
+    updateThumbnailState();
+
+}
+
+
+/* ==========================================
+   UPDATE ACTIVE THUMBNAIL
+========================================== */
+
+function updateThumbnailState() {
+
+    const thumbnails =
+        thumbnailContainer.querySelectorAll(".viewer-thumbnail");
+
+    thumbnails.forEach((thumbnail, index) => {
+
+        const isActive = index === currentIndex;
+
+        thumbnail.classList.toggle("active", isActive);
+
+        if (isActive) {
+
+            thumbnail.setAttribute("aria-current", "true");
+
+            thumbnail.scrollIntoView({
+                behavior: "smooth",
+                block: "nearest",
+                inline: "center"
+            });
+
+        } else {
+
+            thumbnail.removeAttribute("aria-current");
+
+        }
+
+    });
+
+}
+
+
+/* ==========================================
+   DISPLAY CURRENT SLIDE
+   WITH ORIENTATION DETECTION
+========================================== */
+
+function displayCurrentSlide() {
+
+    const images = getSlideImages(currentIndex);
+
+    // FIRST IMAGE
+    viewerImage.src = images[0];
+    viewerImage.alt = `Wedding photograph ${currentIndex + 1}`;
+
+    // DETECT LANDSCAPE OR PORTRAIT
+    const image = new Image();
+
+    image.onload = function () {
+
+        const isLandscape =
+            image.naturalWidth > image.naturalHeight;
+
+        viewerStage.classList.toggle(
+            "has-landscape",
+            isLandscape && images.length === 1
+        );
+
+    };
+
+    image.src = images[0];
+
+    // CHECK IF THIS IS A TWO-IMAGE SPREAD
+    if (images.length === 2) {
+
+        mainImageContainer.classList.add("is-spread");
+
+        secondViewerImage.src = images[1];
+        secondViewerImage.style.display = "block";
+
+        viewerStage.classList.remove("has-landscape");
+
+    } else {
+
+        mainImageContainer.classList.remove("is-spread");
+
+        secondViewerImage.removeAttribute("src");
+        secondViewerImage.style.display = "none";
+
+    }
+
+}
+
+
+/* ==========================================
+   CINEMATIC IMAGE TRANSITION
+========================================== */
 
 function showImage(index, direction = 1) {
 
@@ -244,89 +450,144 @@ function showImage(index, direction = 1) {
 
     if (nextIndex === currentIndex) return;
 
-    const newImage = new Image();
+    const nextImages = getSlideImages(nextIndex);
 
-    newImage.onload = () => {
+    // LOAD ALL IMAGES BEFORE TRANSITION
+    const loadedImages = nextImages.map((src) => {
 
-        isAnimating = true;
+        return new Promise((resolve, reject) => {
 
-        viewerImage.style.transition =
-            "opacity .65s ease, transform .9s cubic-bezier(.22,.61,.36,1)";
+            const image = new Image();
 
-        viewerImage.style.opacity = "0";
-        viewerImage.style.transform =
-            `translateX(${direction * -35}px) scale(.985)`;
+            image.onload = () => resolve(image);
 
-        previousPreview.style.transition =
-            "opacity .8s ease, transform .9s cubic-bezier(.22,.61,.36,1)";
+            image.onerror = () => reject(src);
 
-        nextPreview.style.transition =
-            "opacity .8s ease, transform .9s cubic-bezier(.22,.61,.36,1)";
+            image.src = src;
 
-        previousPreview.style.opacity = "0.2";
-        nextPreview.style.opacity = "0.2";
+        });
 
-        previousPreview.style.transform = "scale(.96)";
-        nextPreview.style.transform = "scale(.96)";
+    });
 
-        setTimeout(() => {
+    Promise.all(loadedImages)
 
-            currentIndex = nextIndex;
+        .then((images) => {
 
-            viewerImage.src = newImage.src;
-            viewerImage.alt =
-                `Wedding photograph ${currentIndex + 1}`;
+            isAnimating = true;
+
+            viewerImage.style.transition =
+                "opacity .65s ease, transform .9s cubic-bezier(.22,.61,.36,1)";
+
+            secondViewerImage.style.transition =
+                "opacity .65s ease, transform .9s cubic-bezier(.22,.61,.36,1)";
+
+            viewerImage.style.opacity = "0";
+            secondViewerImage.style.opacity = "0";
 
             viewerImage.style.transform =
-                `translateX(${direction * 25}px) scale(.985)`;
+                `translateX(${direction * -35}px) scale(.985)`;
 
-            updatePreviews();
-            updateCounter();
-            updateCaption();
+            secondViewerImage.style.transform =
+                `translateX(${direction * -35}px) scale(.985)`;
 
-            requestAnimationFrame(() => {
+            previousPreview.style.transition =
+                "opacity .8s ease, transform .9s cubic-bezier(.22,.61,.36,1)";
 
-                viewerImage.style.opacity = "1";
-                viewerImage.style.transform = "translateX(0) scale(1)";
+            nextPreview.style.transition =
+                "opacity .8s ease, transform .9s cubic-bezier(.22,.61,.36,1)";
 
-                previousPreview.style.opacity = "";
-                nextPreview.style.opacity = "";
+            previousPreview.style.opacity = "0.2";
+            nextPreview.style.opacity = "0.2";
 
-                previousPreview.style.transform = "";
-                nextPreview.style.transform = "";
+            previousPreview.style.transform = "scale(.96)";
+            nextPreview.style.transform = "scale(.96)";
 
-            });
 
             setTimeout(() => {
-                isAnimating = false;
-            }, 900);
 
-        }, 400);
-    };
+                currentIndex = nextIndex;
 
-    newImage.onerror = () => {
-        console.error(
-            "Could not load wedding image:",
-            weddingImages[nextIndex]
-        );
-    };
+                displayCurrentSlide();
 
-    newImage.src = weddingImages[nextIndex];
+                // RESET IMAGE POSITIONS
+                viewerImage.style.transform =
+                    `translateX(${direction * 25}px) scale(.985)`;
+
+                secondViewerImage.style.transform =
+                    `translateX(${direction * 25}px) scale(.985)`;
+
+                updatePreviews();
+                updateCounter();
+                updateCaption();
+                updateThumbnailState();
+
+
+                requestAnimationFrame(() => {
+
+                    viewerImage.style.opacity = "1";
+
+                    secondViewerImage.style.opacity =
+                        nextImages.length === 2 ? "1" : "0";
+
+                    viewerImage.style.transform =
+                        "translateX(0) scale(1)";
+
+                    secondViewerImage.style.transform =
+                        "translateX(0) scale(1)";
+
+                    previousPreview.style.opacity = "";
+                    nextPreview.style.opacity = "";
+
+                    previousPreview.style.transform = "";
+                    nextPreview.style.transform = "";
+
+                });
+
+
+                setTimeout(() => {
+
+                    isAnimating = false;
+
+                }, 900);
+
+            }, 400);
+
+        })
+
+        .catch((failedImage) => {
+
+            console.error(
+                "Could not load wedding image:",
+                failedImage
+            );
+
+            isAnimating = false;
+
+        });
+
 }
 
 
-/* SIDE IMAGE NAVIGATION */
+/* ==========================================
+   SIDE IMAGE NAVIGATION
+========================================== */
 
 previousButton.addEventListener("click", () => {
+
     showImage(currentIndex - 1, -1);
+
 });
 
 nextButton.addEventListener("click", () => {
+
     showImage(currentIndex + 1, 1);
+
 });
 
 
-/* KEYBOARD NAVIGATION */
+/* ==========================================
+   KEYBOARD NAVIGATION
+========================================== */
 
 document.addEventListener("keydown", (event) => {
 
@@ -341,7 +602,9 @@ document.addEventListener("keydown", (event) => {
 });
 
 
-/* MOBILE SWIPE NAVIGATION */
+/* ==========================================
+   MOBILE SWIPE NAVIGATION
+========================================== */
 
 let touchStartX = 0;
 
@@ -360,27 +623,35 @@ viewerStage.addEventListener("touchend", (event) => {
     if (Math.abs(swipeDistance) < 50) return;
 
     if (swipeDistance < 0) {
+
         showImage(currentIndex + 1, 1);
+
     } else {
+
         showImage(currentIndex - 1, -1);
+
     }
 
 }, { passive: true });
 
 
-/* INITIALISE VIEWER */
+/* ==========================================
+   INITIALISE VIEWER
+========================================== */
 
 function initialiseViewer() {
 
     totalImages.textContent =
         String(weddingImages.length).padStart(2, "0");
 
-    viewerImage.src = weddingImages[0];
-    viewerImage.alt = "Wedding photograph 1";
+    buildThumbnails();
+
+    displayCurrentSlide();
 
     updateCounter();
     updatePreviews();
     updateCaption();
+
 }
 
 initialiseViewer();

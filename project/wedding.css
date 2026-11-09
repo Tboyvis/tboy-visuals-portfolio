@@ -681,6 +681,11 @@ img {
         bottom: 30px;
     }
 
+    /* ======================================
+       MOBILE WEDDING GALLERY
+       TWO-COLUMN EDITORIAL LAYOUT
+    ====================================== */
+
     .wedding-stories {
         padding: 85px 5% 90px;
     }
@@ -703,42 +708,62 @@ img {
     }
 
     .wedding-grid {
-        grid-template-columns: repeat(5, minmax(0, 1fr));
-        column-gap: 8px;
-        row-gap: 55px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        column-gap: 13px;
+        row-gap: 34px;
+
         align-items: start;
     }
 
     .wedding-photo {
         grid-column: auto !important;
-        width: 90%;
+
+        width: 100%;
         height: auto !important;
+
         aspect-ratio: auto !important;
-        margin: 0 auto !important;
+
+        margin: 0 !important;
+
+        overflow: hidden;
     }
+
+    /* SHOW THE ENTIRE PHOTOGRAPH */
 
     .wedding-photo img {
+        display: block;
+
+        width: 100%;
         height: auto;
+
         object-fit: contain;
+        object-position: center;
+
+        transform: none;
     }
 
-    .wedding-photo:nth-child(5n + 1),
-    .wedding-photo:nth-child(5n + 3),
-    .wedding-photo:nth-child(5n + 5) {
+    /* ALTERNATING EDITORIAL POSITION */
+
+    .wedding-photo:nth-child(even) {
+        margin-top: 48px !important;
+    }
+
+    .wedding-photo:nth-child(odd) {
         margin-top: 0 !important;
     }
 
-    .wedding-photo:nth-child(5n + 2),
-    .wedding-photo:nth-child(5n + 4) {
-        margin-top: 55px !important;
-    }
+    /* CAPTIONS */
 
     .wedding-photo-caption {
         font-size: 7px;
         letter-spacing: 0.6px;
-        line-height: 1.5;
-        margin-top: 8px;
+        line-height: 1.6;
+        margin-top: 9px;
     }
+
+    /* VIEWER CALL TO ACTION */
 
     .wedding-viewer-cta {
         margin-top: 75px;
@@ -758,6 +783,8 @@ img {
         gap: 12px;
         white-space: nowrap;
     }
+
+    /* CLOSING */
 
     .wedding-closing {
         min-height: 680px;
@@ -919,4 +946,53 @@ img {
         transform: none;
         filter: none;
     }
+}
+
+/* ==========================================
+   TBOY VISUALS — MOBILE TYPOGRAPHY UPGRADE
+========================================== */
+
+@media (max-width: 650px) {
+
+    /* BODY TEXT */
+
+    p,
+    li {
+        font-size: max(14px, 1em) !important;
+        line-height: 1.85;
+    }
+
+    /* SMALL DESCRIPTIONS AND CAPTIONS */
+
+    small,
+    figcaption,
+    .photo-caption,
+    .gallery-caption {
+        font-size: max(11px, 1em) !important;
+        line-height: 1.7;
+    }
+
+    /* BUTTONS AND LINKS */
+
+    button,
+    .button,
+    .btn {
+        font-size: max(12px, 1em) !important;
+    }
+
+    /* NAVIGATION */
+
+    nav a,
+    header a {
+        font-size: max(11px, 1em) !important;
+    }
+
+    /* FORM TEXT */
+
+    input,
+    textarea,
+    select {
+        font-size: 14px !important;
+    }
+
 }
