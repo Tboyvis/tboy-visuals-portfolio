@@ -20,11 +20,17 @@
     <!-- FAVICON -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
-    <!-- PRIORITIZE HERO IMAGE FOR LCP -->
+    <!-- PRIORITIZE RESPONSIVE HERO IMAGE FOR LCP -->
     <link
         rel="preload"
         as="image"
-        href="images/hero.JPG"
+        href="images/hero-1600.webp"
+        imagesrcset="
+            images/hero-860.webp 860w,
+            images/hero-1600.webp 1600w,
+            images/hero-2400.webp 2400w
+        "
+        imagesizes="100vw"
         fetchpriority="high"
     >
 
@@ -101,10 +107,19 @@
 
         <img
             class="hero-image"
-            src="images/hero.JPG"
+            src="images/hero-1600.webp"
+            srcset="
+                images/hero-860.webp 860w,
+                images/hero-1600.webp 1600w,
+                images/hero-2400.webp 2400w
+            "
+            sizes="100vw"
             alt=""
             fetchpriority="high"
             loading="eager"
+            decoding="async"
+            width="860"
+            height="1344"
         >
 
         <div class="hero-content">
