@@ -28,9 +28,9 @@
         href="images/hero-1600.webp"
         imagesrcset="
             images/hero-600.webp 600w,
-images/hero-860.webp 860w,
-images/hero-1600.webp 1600w,
-images/hero-2400.webp 2400w
+            images/hero-860.webp 860w,
+            images/hero-1600.webp 1600w,
+            images/hero-2400.webp 2400w
         "
         imagesizes="100vw"
         fetchpriority="high"
@@ -62,7 +62,21 @@ images/hero-2400.webp 2400w
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+    <!-- LOAD GOOGLE FONTS WITHOUT BLOCKING INITIAL RENDER -->
+    <link
+        rel="preload"
+        as="style"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
+        onload="this.onload=null;this.rel='stylesheet'"
+    >
+
+    <noscript>
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
+        >
+    </noscript>
 
     <!-- MAIN STYLESHEET -->
     <link rel="stylesheet" href="style.css">
@@ -330,7 +344,7 @@ images/hero-2400.webp 2400w
 
                     <img
                         src="images-webp/fashion/cover-hq-1200.webp"
-                       srcset="
+                        srcset="
                             images-webp/fashion/cover-hq-600.webp 600w,
                             images-webp/fashion/cover-hq-900.webp 900w,
                             images-webp/fashion/cover-hq-1200.webp 1200w,
@@ -361,12 +375,12 @@ images/hero-2400.webp 2400w
                     <img
                         src="images-webp/lifestyles/cover-hq-1200.webp"
                         srcset="
-                                images-webp/lifestyles/cover-hq-400.webp 400w,
-                                images-webp/lifestyles/cover-hq-900.webp 900w,
-                                images-webp/lifestyles/cover-hq-1200.webp 1200w,
-                                images-webp/lifestyles/cover-hq-1600.webp 1600w,
-                                images-webp/lifestyles/cover-hq-1800.webp 1800w
-                            "
+                            images-webp/lifestyles/cover-hq-400.webp 400w,
+                            images-webp/lifestyles/cover-hq-900.webp 900w,
+                            images-webp/lifestyles/cover-hq-1200.webp 1200w,
+                            images-webp/lifestyles/cover-hq-1600.webp 1600w,
+                            images-webp/lifestyles/cover-hq-1800.webp 1800w
+                        "
                         sizes="(max-width: 600px) 50vw, 33vw"
                         alt="Lifestyle photography"
                         width="900"
@@ -414,29 +428,27 @@ images/hero-2400.webp 2400w
 
                 </a>
 
-                
-<!-- PROJECT 06 — EVENTS -->
-<a href="project/events.html" class="gallery-item item-five">
+                <!-- PROJECT 06 — EVENTS -->
+                <a href="project/events.html" class="gallery-item item-five">
 
-    <img
-        src="images-webp/events/DSC_1157-preview.webp"
-        alt="Events photography by Tboy Visuals"
-        width="900"
-        height="1350"
-        loading="lazy"
-        decoding="async"
-    >
+                    <img
+                        src="images-webp/events/DSC_1157-preview.webp"
+                        alt="Events photography by Tboy Visuals"
+                        width="900"
+                        height="1350"
+                        loading="lazy"
+                        decoding="async"
+                    >
 
-    <div class="gallery-caption">
+                    <div class="gallery-caption">
 
-        <span class="gallery-caption-number">06 / PROJECT</span>
+                        <span class="gallery-caption-number">06 / PROJECT</span>
 
-        <h3>Events</h3>
+                        <h3>Events</h3>
 
-    </div>
+                    </div>
 
-</a>
-
+                </a>
 
             </div>
 
