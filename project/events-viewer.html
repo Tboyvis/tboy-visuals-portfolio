@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#F1E8DC">
+    <meta name="description" content="Explore the event photography archive by Tboy Visuals.">
+
+    <title>Event Stories — Tboy Visuals</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="events-viewer.css">
+</head>
+
+<body class="events-viewer-page">
+
+    <header class="viewer-header">
+
+        <a href="../index.html" class="viewer-logo">
+            <span class="logo-name">TBOY VISUALS</span>
+            <span class="logo-subtitle">PHOTOGRAPHY & VISUAL ART</span>
+        </a>
+
+        <a href="events.html" class="viewer-back">
+            <span>←</span> BACK TO EVENTS
+        </a>
+
+    </header>
+
+
+    <main class="viewer-container">
+
+        <section class="viewer-intro">
+
+            <span class="viewer-eyebrow">THE EVENT ARCHIVE</span>
+
+            <h1>Moments in <em>time.</em></h1>
+
+            <p>SELECT A COLLECTION</p>
+
+            <nav class="collection-switcher" aria-label="Event collections">
+
+                <button class="collection-button" data-collection="birthday">
+                    BASKETBALL BIRTHDAY
+                </button>
+
+                <button class="collection-button" data-collection="family">
+                    FAMILY CELEBRATION
+                </button>
+
+                <button class="collection-button" data-collection="social">
+                    SOCIAL GATHERING
+                </button>
+
+            </nav>
+
+        </section>
+
+
+        <section class="viewer-gallery">
+
+            <div class="viewer-topline">
+                <span id="collection-name">BASKETBALL BIRTHDAY</span>
+
+                <span class="viewer-counter">
+                    <span id="current-image">01</span>
+                    <span class="counter-divider">/</span>
+                    <span id="total-images">33</span>
+                </span>
+            </div>
+
+
+            <div class="viewer-stage" id="viewer-stage">
+
+                <button
+                    class="viewer-arrow viewer-previous"
+                    id="previous-image"
+                    aria-label="Previous photograph"
+                    type="button"
+                >
+                    ←
+                </button>
+
+                <div class="viewer-image-wrap">
+                    <img
+                        src="../images-webp/events/DSC_0579.webp"
+                        alt="Event photograph"
+                        id="viewer-image"
+                        draggable="false"
+                    >
+                </div>
+
+                <button
+                    class="viewer-arrow viewer-next"
+                    id="next-image"
+                    aria-label="Next photograph"
+                    type="button"
+                >
+                    →
+                </button>
+
+            </div>
+
+
+            <div class="viewer-controls">
+
+                <span>PREVIOUS</span>
+
+                <span class="viewer-controls-line"></span>
+
+                <span>NEXT</span>
+
+            </div>
+
+
+            <div class="thumbnail-heading">
+                <span>COLLECTION PHOTOGRAPHS</span>
+                <span>SELECT TO VIEW</span>
+            </div>
+
+            <div class="viewer-thumbnails" id="viewer-thumbnails"></div>
+
+        </section>
+
+    </main>
+
+
+    <footer class="viewer-footer">
+        <span>© 2026 TBOY VISUALS</span>
+        <span>THE EVENT ARCHIVE</span>
+        <a href="events.html">BACK TO COLLECTIONS ↑</a>
+    </footer>
+
+
+    <script src="events-viewer.js"></script>
+
+</body>
+</html>

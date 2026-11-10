@@ -4,20 +4,26 @@
 // COLLECTIONS
 
 const collections = {
-    fashion: {
-        title: "FASHION ARCHIVE",
-        archive: "fashion.html",
-        images: [
-            "../images-webp/fashion/1.webp",
-            "../images-webp/fashion/2.webp",
-            "../images-webp/fashion/3.webp",
-            "../images-webp/fashion/4.webp",
-            "../images-webp/fashion/5.webp",
-            "../images-webp/fashion/6.webp",
-            "../images-webp/fashion/7.webp",
-            "../images-webp/fashion/8.webp"
-        ]
-    },
+    
+fashion: {
+    title: "FASHION ARCHIVE",
+    archive: "fashion.html",
+    images: [
+        "../images-webp/fashion/1.webp",
+        "../images-webp/fashion/2.webp",
+        "../images-webp/fashion/3.webp",
+        "../images-webp/fashion/4.webp",
+        "../images-webp/fashion/5.webp",
+        "../images-webp/fashion/6.webp",
+        "../images-webp/fashion/7.webp",
+        "../images-webp/fashion/8.webp",
+        "../images-webp/fashion/OKVL4524.webp",
+        "../images-webp/fashion/PHZC2232.webp",
+        "../images-webp/fashion/RPZM6328.webp",
+        "../images-webp/fashion/TJQF8818.webp"
+    ]
+},
+
 
     "red-room": {
         title: "THE RED ROOM",
@@ -50,26 +56,31 @@ const collections = {
         ]
     },
 
-    editorial: {
-        title: "EDITORIAL ARCHIVE",
-        archive: "editorial.html",
-        images: [
-            "../images-webp/Editorial/BTUY6189.webp",
-            "../images-webp/Editorial/BWYS1228.webp",
-            "../images-webp/Editorial/BWYZ4454.webp",
-            "../images-webp/Editorial/EIAX9737.webp",
-            "../images-webp/Editorial/FTWK3953.webp",
-            "../images-webp/Editorial/GRJX7339.webp",
-            "../images-webp/Editorial/HGES3679.webp",
-            "../images-webp/Editorial/HHCA7474.webp",
-            "../images-webp/Editorial/IKUN6637.webp",
-            "../images-webp/Editorial/LSKI1892.webp",
-            "../images-webp/Editorial/MNEJ0336.webp",
-            "../images-webp/Editorial/OBAS9165.webp",
-            "../images-webp/Editorial/OSHS4304.webp",
-            "../images-webp/Editorial/RAYI9816.webp"
-        ]
-    }
+    
+editorial: {
+    title: "EDITORIAL ARCHIVE",
+    archive: "editorial.html",
+    images: [
+        "../images-webp/Editorial/BTUY6189.webp",
+        "../images-webp/Editorial/BWYS1228.webp",
+        "../images-webp/Editorial/BWYZ4454.webp",
+        "../images-webp/Editorial/EIAX9737.webp",
+        "../images-webp/Editorial/FTWK3953.webp",
+        "../images-webp/Editorial/GRJX7339.webp",
+        "../images-webp/Editorial/HGES3679.webp",
+        "../images-webp/Editorial/HHCA7474.webp",
+        "../images-webp/Editorial/IKUN6637.webp",
+        "../images-webp/Editorial/LSKI1892.webp",
+        "../images-webp/Editorial/MNEJ0336.webp",
+        "../images-webp/Editorial/OBAS9165.webp",
+        "../images-webp/Editorial/OSHS4304.webp",
+        "../images-webp/Editorial/RAYI9816.webp",
+        "../images-webp/Editorial/ADVU0531.webp",
+        "../images-webp/Editorial/NJSU4624.webp",
+        "../images-webp/Editorial/PTEH8502.webp"
+    ]
+},
+
 };
 
 

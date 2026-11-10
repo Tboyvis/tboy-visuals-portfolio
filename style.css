@@ -2180,3 +2180,40 @@ button:focus-visible {
         padding-bottom: 24px;
     }
 }
+
+/* ==========================================
+   EVENTS — HOMEPAGE LANDSCAPE FEATURE
+========================================== */
+
+/* EVENTS CARD */
+
+.gallery-item.item-five {
+    grid-column: 1 / -1;
+    width: 100%;
+    justify-self: stretch;
+}
+
+/* LANDSCAPE IMAGE */
+
+.gallery-item.item-five img {
+    width: 100%;
+    aspect-ratio: 16 / 7;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* MOBILE LANDSCAPE */
+
+@media (max-width: 768px) {
+
+    .gallery-item.item-five {
+        grid-column: 1 / -1;
+        width: 100%;
+    }
+
+    .gallery-item.item-five img {
+        aspect-ratio: 16 / 9;
+    }
+
+}

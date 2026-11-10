@@ -37,11 +37,37 @@ const weddingImages = [
         "../images-webp/wedding/DSC_1994.jpg1.webp"
     ],
 
+    
     "../images-webp/wedding/DSC_2044.webp",
     "../images-webp/wedding/DSC_2054.webp",
     "../images-webp/wedding/DSC_2072.jpg1.webp",
     "../images-webp/wedding/DSC_2163.webp",
-    "../images-webp/wedding/DSC02636.webp"
+    "../images-webp/wedding/DSC02636.webp",
+    "../images-webp/wedding/FSGD6787.webp",
+    "../images-webp/wedding/ULKZ7497.webp",
+    "../images-webp/wedding/ULKZ7497.webp",
+
+    // REMAINING WEDDING PHOTOGRAPHS
+    "../images-webp/wedding/11.webp",
+    "../images-webp/wedding/2v.webp",
+    "../images-webp/wedding/3v.webp",
+    "../images-webp/wedding/DSC_1965.webp",
+    "../images-webp/wedding/DSC_2056.webp",
+    "../images-webp/wedding/DSC_2058.webp",
+    "../images-webp/wedding/DSC_2076.webp",
+    "../images-webp/wedding/ENGAGEMENT.jpg02.webp",
+    "../images-webp/wedding/ENGAGEMENT.jpg03.webp",
+    "../images-webp/wedding/ENGAGEMENT.jpg04.webp",
+    "../images-webp/wedding/ENGAGEMENT.jpg05.webp",
+    "../images-webp/wedding/ENGAGEMENT.jpg06.webp",
+    "../images-webp/wedding/ENGAGEMENT.jpg09.webp",
+    "../images-webp/wedding/ENGAGEMENT.jpg2.webp",
+    "../images-webp/wedding/ENGAGEMENT.jpg3.webp",
+    "../images-webp/wedding/ENGAGEMENT.jpg4.webp",
+    "../images-webp/wedding/ENGAGEMENT.jpg5.webp",
+    "../images-webp/wedding/ENGAGEMENT.jpg6.webp",
+    "../images-webp/wedding/ENGAGEMENT.jpg8.webp",
+    "../images-webp/wedding/ENGAGEMENT.jpg9.webp"
 ];
 
 
@@ -166,9 +192,126 @@ const weddingCaptions = [
         label: "CHAPTER 05 — THE DETAILS",
         title: "Just Us",
         description: "When the rest of the world fades away."
-    }
+    },
+        {
+        label: "CHAPTER 05 — THE DETAILS",
+        title: "A Moment to Remember",
+        description: "Another beautiful memory from the celebration."
+    },
+    {
+        label: "CHAPTER 05 — THE DETAILS",
+        title: "The Story Continues",
+        description: "Two more moments preserved in time."
+    },
 
+
+    {
+        label: "CHAPTER 05 — THE DETAILS",
+        title: "Another Beautiful Moment",
+        description: "A memory worth keeping, just as it happened."
+    },
+    {
+        label: "CHAPTER 05 — THE DETAILS",
+        title: "A Day to Remember",
+        description: "Another frame from a celebration filled with meaning."
+    },
+    {
+        label: "CHAPTER 05 — THE DETAILS",
+        title: "The Beauty Between",
+        description: "The little moments that complete the story."
+    },
+    {
+        label: "CHAPTER 05 — THE DETAILS",
+        title: "A Memory Preserved",
+        description: "A beautiful moment, held beyond the day."
+    },
+    {
+        label: "CHAPTER 05 — THE DETAILS",
+        title: "In Good Company",
+        description: "The people and moments that make a celebration."
+    },
+    {
+        label: "CHAPTER 05 — THE DETAILS",
+        title: "A Little More Joy",
+        description: "The celebration continues through every frame."
+    },
+    {
+        label: "CHAPTER 05 — THE DETAILS",
+        title: "The Moments We Keep",
+        description: "A collection of memories from their special day."
+    },
+    {
+        label: "CHAPTER 06 — THE ENGAGEMENT",
+        title: "Before the Wedding",
+        description: "The beginning of a beautiful story together."
+    },
+    {
+        label: "CHAPTER 06 — THE ENGAGEMENT",
+        title: "A Promise in the Making",
+        description: "A chapter filled with anticipation and affection."
+    },
+    {
+        label: "CHAPTER 06 — THE ENGAGEMENT",
+        title: "The Two of Us",
+        description: "Celebrating the connection that started it all."
+    },
+    {
+        label: "CHAPTER 06 — THE ENGAGEMENT",
+        title: "A Love Worth Celebrating",
+        description: "A beautiful beginning, captured in photographs."
+    },
+    {
+        label: "CHAPTER 06 — THE ENGAGEMENT",
+        title: "The Beginning of Forever",
+        description: "The moments leading up to a lifetime together."
+    },
+    {
+        label: "CHAPTER 06 — THE ENGAGEMENT",
+        title: "A Story Before the Day",
+        description: "The memories that came before the celebration."
+    },
+    {
+        label: "CHAPTER 06 — THE ENGAGEMENT",
+        title: "Together in This Moment",
+        description: "Two people and a story worth telling."
+    },
+    {
+        label: "CHAPTER 06 — THE ENGAGEMENT",
+        title: "The Way We Remember",
+        description: "A collection of moments filled with warmth."
+    },
+    {
+        label: "CHAPTER 06 — THE ENGAGEMENT",
+        title: "A Beautiful Connection",
+        description: "The joy of finding someone to share life with."
+    },
+    {
+        label: "CHAPTER 06 — THE ENGAGEMENT",
+        title: "The Story Begins",
+        description: "Every forever has a beginning."
+    },
+    {
+        label: "CHAPTER 06 — THE ENGAGEMENT",
+        title: "A Moment Together",
+        description: "A quiet celebration of two hearts."
+    },
+    {
+        label: "CHAPTER 06 — THE ENGAGEMENT",
+        title: "Before the Forever",
+        description: "One more memory from the journey to forever."
+    },
+    {
+        label: "CHAPTER 06 — THE ENGAGEMENT",
+        title: "The Road to Forever",
+        description: "The beginning of everything still to come."
+    },
+    {
+        label: "CHAPTER 06 — THE ENGAGEMENT",
+        title: "A Forever Begins",
+        description: "One final moment from the beginning of their story."
+    }
 ];
+
 
 
 /* ==========================================
@@ -268,9 +411,14 @@ function updateCounter() {
    UPDATE CAPTION
 ========================================== */
 
+
 function updateCaption() {
 
-    const caption = weddingCaptions[currentIndex];
+    const caption = weddingCaptions[currentIndex] || {
+        label: "THE WEDDING STORY",
+        title: "A Moment Preserved",
+        description: "Another beautiful memory from the celebration."
+    };
 
     viewerTitle.textContent = caption.title;
     viewerCaptionLabel.textContent = caption.label;
